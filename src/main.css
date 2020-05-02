@@ -1,0 +1,33 @@
+.pusher {
+  width: 100%;
+}
+
+.pusher.red {
+  background: red;
+}
+
+.pusher.green {
+  background: green;
+}
+
+.pusher.blue {
+  background: blue;
+}
+
+.push-1-vh {
+  height: 100vh;
+}
+
+.push-2-vh {
+  height: 200vh;
+}
+
+.push-3-vh {
+  height: 300vh;
+}
+
+.fix-to-center-top {
+  position: fixed;
+  left: 50%;
+  top: 20px;
+}
