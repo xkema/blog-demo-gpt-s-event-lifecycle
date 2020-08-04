@@ -1,22 +1,21 @@
 {
-  "name": "viewability-and-impression-timing-demo",
+  "name": "blog-demo-gpt-s-viewability-and-impression-timing",
   "version": "1.0.0",
-  "description": "",
+  "description": "blog-demo-gpt-s-viewability-and-impression-timing",
   "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "browser-sync start --server --directory --port 4005 --no-open --files src"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xkema/viewability-and-impression-timing-demo.git"
+    "url": "git+https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xkema/viewability-and-impression-timing-demo/issues"
+    "url": "https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing/issues"
   },
-  "homepage": "https://github.com/xkema/viewability-and-impression-timing-demo#readme",
-  "dependencies": {
-    "bulma": "^0.8.2"
-  }
+  "homepage": "https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing#readme"
 }
