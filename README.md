@@ -7,6 +7,7 @@ blog-demo-gpt-s-viewability-and-impression-timing
 - do not forget to ad disable ad blocker note
   - a timer for ad blocker users (gpt checker)
   - use mock?
+- use local gpt.js and log version to user
 
 ## links
 
