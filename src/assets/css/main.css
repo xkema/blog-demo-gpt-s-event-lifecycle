@@ -20,7 +20,8 @@ body {
   "ads-site-top      ads-site-top      ads-site-top      ads-site-top"
   "header            header            header            header"
   "graph             graph             graph             graph"
-  "main              main              main              aside"
+  "main              main              main              aside-top"
+  "main              main              main              aside-bottom"
   "ads-site-bottom   ads-site-bottom   ads-site-bottom   ads-site-bottom"
   "footer            footer            footer            footer";
   grid-row-gap: 1rem;
@@ -48,8 +49,12 @@ body {
   grid-area: main;
 }
 
-.grid-aside {
-  grid-area: aside;
+.grid-aside-top {
+  grid-area: aside-top;
+}
+
+.grid-aside-bottom {
+  grid-area: aside-bottom;
 }
 
 .grid-ads-site-bottom {
@@ -82,17 +87,54 @@ body {
 .navbar-item.current {}
 
 .timeline {}
-.timeline > div {
-  text-align: center;
-  float: left;
-  clear: both;
-  margin-bottom: 2px;
+.tl-item {}
+.tl-header,
+.tl-text,
+.tl-iddle {
+  /* display: inline-block; */
+  /* padding: 1px 6px; */
 }
-.timeline > div > p { line-height: 1; margin: 0.25rem 0; font-size: 10px; }
+.tl-header {
+  /* margin-right: 10px; */
+  width: 200px;
+  text-align: center;
+}
+.tl-text {
+  /* border-radius: 10px; */
+  /* margin-left: 2px;
+  padding: 0 4px; */
+}
+.tl-iddle {
+  /* background-color: transparent;
+  position: relative;
+  width: 50px; */
+}
+.tl-iddle::after {
+  /* position: absolute;
+  content: "";
+  border-bottom: 1px dotted black;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: -50%; */
+}
 
-.ff-impressionviewable { background-color: royalblue; }
-.ff-slotonload { background-color: peru; }
-.ff-slotrenderended { background-color: teal; }
-.ff-slotrequested { background-color: gold; }
-.ff-slotresponsereceived { background-color: deeppink; }
-.ff-slotvisibilitychanged { background-color: plum; }
+.tl-slotRequested .tl-header {
+  /* background-color: gold; */
+}
+.tl-slotResponseReceived .tl-header {
+  /* background-color: deeppink; */
+}
+.tl-slotRenderEnded .tl-header {
+  /* background-color: teal; */
+}
+.tl-slotOnload .tl-header {
+  /* background-color: peru; */
+}
+.tl-slotVisibilityChanged .tl-header,
+.tl-slotVisibilityChanged .tl-text {
+  /* background-color: plum; */
+}
+.tl-impressionViewable .tl-header {
+  /* background-color: royalblue; */
+}
