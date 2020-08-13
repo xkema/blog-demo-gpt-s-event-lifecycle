@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
-  document.body.insertAdjacentElement('afterBegin', demotag.slots['div-gpt-ad-9405734-1'].timelineElement);
-  document.body.insertAdjacentElement('afterBegin', demotag.slots['div-gpt-ad-1596659457894-0'].timelineElement);
+  document.querySelector('.grid-graph').insertAdjacentElement('afterBegin', demotag.slots['div-gpt-ad-1596659457894-0'].timelineElement);
+  document.querySelector('.grid-graph').insertAdjacentElement('afterBegin', demotag.slots['div-gpt-ad-9405734-1'].timelineElement);
 });
 
 // a global object to enclose page data
@@ -27,42 +27,41 @@ const demotag = ((window, document, googletag) => {
    */
   const updateTimelineElement = (currentEvent, timelineElement) => {
     // create timeline item and item header for each event if it is not created before
-    let timelineItem = timelineElement.querySelector(`.demotag-tl-${currentEvent.type}`);
-    let timelineItemHeader = timelineElement.querySelector(`.demotag-tl-${currentEvent.type} .demotag-tl-header`);;
+    let timelineItem = timelineElement.querySelector(`.${currentEvent.type}`);
     if(null === timelineItem) {
       // create timeline item for current event
       timelineItem = document.createElement('div');
-      timelineItem.classList.add('demotag-tl-item', `demotag-tl-${currentEvent.type}`);
-      // add a header to timeline item
-      if(null === timelineItemHeader) {
-        timelineItemHeader = document.createElement('span');
-        timelineItemHeader.classList.add('demotag-tl-header');
-        timelineItemHeader.textContent = currentEvent.type;
-        timelineItem.insertAdjacentElement('afterBegin', timelineItemHeader);
-      }
+      timelineItem.classList.add('timeline-item', `${currentEvent.type}`);
+      // add a color visualizer and header to timeline item
+      timelineItem.insertAdjacentHTML('afterBegin', `
+        <span class="timeline-timing">&nbsp;</span>
+        <span class="timeline-separator">&laquo;</span>
+        <span class="timeline-label">${currentEvent.type}</span>
+      `);
       // insert timeline item to the timeline element
       timelineElement.insertAdjacentElement('beforeEnd', timelineItem);
     }
-    // add percentages if event is visibility change event
+    // update percentages if event is visibility change event
     if('slotVisibilityChanged' === currentEvent.type) {
-      // restrict percentages to max 5 items (6 = 1 header and 5 percentages)
-      while(timelineItem.querySelectorAll('.demotag-tl-text').length > 6) {
-        timelineItem.firstElementChild.nextElementSibling.remove();
+      const timelineDetailsElement = timelineElement.querySelector('.timeline-details')
+      if(null === timelineDetailsElement) {
+        timelineItem.insertAdjacentHTML('beforeEnd', `
+          <span class="timeline-separator">|</span>
+          <span class="timeline-details">${currentEvent.inViewPercentage}%</span>`);
+      } else {
+        timelineDetailsElement.textContent = `${currentEvent.inViewPercentage}%`;
       }
-      const percentageItem = document.createElement('span');
-      percentageItem.classList.add('demotag-tl-text');
-      percentageItem.textContent = `${currentEvent.inViewPercentage}%`;
-      timelineItem.insertAdjacentElement('beforeEnd', percentageItem);
     }
     // translate headers to visualize event timings
-    let timingMargin = Math.floor(currentEvent.timingDiff / 5);
-    if(currentEvent.timingDiff > 1000) {
-      const previousItemEndPosition = timelineItem.previousElementSibling.lastElementChild.getBoundingClientRect().right;
-      timingMargin = previousItemEndPosition;
+    let timingMargin = Math.floor(currentEvent.timingDiff / 2);
+    if(timingMargin > 100) {
+      timelineItem.classList.add('timeline-iddle');
+      const previousItemPadding = parseInt(timelineItem.previousElementSibling.style.marginLeft);
+      timingMargin = previousItemPadding + 100;
     }
     // update left margins with preventing multiple updates for visibility change events
-    if(timelineItem.style.paddingLeft === "") {
-      timelineItem.style.paddingLeft = `${timingMargin}px`;
+    if(timelineItem.style.marginLeft === "") {
+      timelineItem.style.marginLeft = `${timingMargin}px`;
     }
   };
 
@@ -73,7 +72,7 @@ const demotag = ((window, document, googletag) => {
    */
   const createTimelineElement = (currentSlotId='unknown-slot-id') => {
     const element = document.createElement('div');
-    element.classList.add('demotag-tl-container', `demotag-${currentSlotId}`);
+    element.classList.add('timeline-container', `demotag-${currentSlotId}`);
     return element;
   };
 

@@ -10,6 +10,20 @@ body {
   font-weight: 400;
 }
 
+/* --- utilities  */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  display: block;
+  content: "";
+  clear:both;
+}
+
 /* --- layout */
 
 .grid-container {
@@ -43,6 +57,7 @@ body {
 
 .grid-graph {
   grid-area: graph;
+  padding: 1rem;
 }
 
 .grid-main {
@@ -65,7 +80,7 @@ body {
   grid-area: footer;
 }
 
-/* --- theme */
+/* --- site elements */
 
 .site-header {
   /* padding: 1.5rem 0; */
@@ -86,55 +101,75 @@ body {
 .navbar-item {}
 .navbar-item.current {}
 
-.timeline {}
-.tl-item {}
-.tl-header,
-.tl-text,
-.tl-iddle {
-  /* display: inline-block; */
-  /* padding: 1px 6px; */
-}
-.tl-header {
-  /* margin-right: 10px; */
-  width: 200px;
-  text-align: center;
-}
-.tl-text {
-  /* border-radius: 10px; */
-  /* margin-left: 2px;
-  padding: 0 4px; */
-}
-.tl-iddle {
-  /* background-color: transparent;
-  position: relative;
-  width: 50px; */
-}
-.tl-iddle::after {
-  /* position: absolute;
-  content: "";
-  border-bottom: 1px dotted black;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: -50%; */
+/* --- timeline */
+
+.timeline-container {
+  --timeline-height: 12px;
+  font-family: monospace;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px dotted gray;
 }
 
-.tl-slotRequested .tl-header {
-  /* background-color: gold; */
+.timeline-item {
+  --color-slotRequested: skyblue;
+  --color-slotResponseReceived: royalblue;
+  --color-slotRenderEnded: limegreen;
+  --color-slotOnload: gold;
+  --color-slotVisibilityChanged: pink;
+  --color-impressionViewable: deeppink;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1px;
+  position: relative;
 }
-.tl-slotResponseReceived .tl-header {
-  /* background-color: deeppink; */
+
+.timeline-item.slotRequested .timeline-timing {
+  background-color: var(--color-slotRequested);
 }
-.tl-slotRenderEnded .tl-header {
-  /* background-color: teal; */
+.timeline-item.slotResponseReceived .timeline-timing {
+  background-color: var(--color-slotResponseReceived);
 }
-.tl-slotOnload .tl-header {
-  /* background-color: peru; */
+.timeline-item.slotRenderEnded .timeline-timing {
+  background-color: var(--color-slotRenderEnded);
 }
-.tl-slotVisibilityChanged .tl-header,
-.tl-slotVisibilityChanged .tl-text {
-  /* background-color: plum; */
+.timeline-item.slotOnload .timeline-timing {
+  background-color: var(--color-slotOnload);
 }
-.tl-impressionViewable .tl-header {
-  /* background-color: royalblue; */
+.timeline-item.slotVisibilityChanged .timeline-timing {
+  background-color: var(--color-slotVisibilityChanged);
+}
+.timeline-item.impressionViewable .timeline-timing {
+  background-color: var(--color-impressionViewable);
+}
+
+.timeline-item > span,
+.timeline-item.timeline-iddle::before {
+  color: darkslategray;
+}
+
+.timeline-item.timeline-iddle::before {
+  content: "~";
+  position: absolute;
+  top: 1px;
+  right: calc( 100% + 2px );
+  text-align: right;
+}
+
+.timeline-timing {
+  width: var(--timeline-height);
+  height: var(--timeline-height);
+  border-radius: calc( var(--timeline-height) / 2 );
+}
+
+.timeline-separator {
+  margin: 0 2px;
+}
+.timeline-label {
+  /* transform-origin: left center; */
+  /* transform: rotate(-45deg); */
+  /* transition: all .5s ease-in; */
+}
+.timeline-details {
+
 }
