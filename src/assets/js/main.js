@@ -9,6 +9,11 @@ const demotag = ((window, document, googletag) => {
    * Slot events memory
    */
   const slots = {};
+  
+  /**
+   * Initial slot definition timing info
+   */
+  let initialTiming = 0;
 
   /**
    * Responds to triggered GPT events with updating demotag object and timelines
@@ -98,7 +103,7 @@ const demotag = ((window, document, googletag) => {
     const currentEvent = {
       type: gptEventName,
       timing: now,
-      timingDiff: (currentSlot.events.length > 0) ? now - currentSlot.events[0].timing : 0
+      timingDiff: (currentSlot.events.length > 0) ? now - currentSlot.events[0].timing : now - demotag.initialTiming
     };
     // customize slot and saved slot event with event details
     if('slotVisibilityChanged' === gptEventName) {
@@ -119,6 +124,7 @@ const demotag = ((window, document, googletag) => {
   // demotag object exports
   return {
     slots: slots,
+    initialTiming: initialTiming,
     update: update
   };
 })(window, document, googletag);
@@ -127,6 +133,7 @@ console.log(`%cdebug ::`, `color:crimson;font-weight:bold;`, demotag);
 
 // gpt definitions
 googletag.cmd.push(function() {
+  demotag.initialTiming = Date.now();
   googletag.defineSlot('/567914328/test/desktop', [[300,250]], 'div-gpt-ad-9405734-1').addService(googletag.pubads());
   googletag.defineSlot('/567914328/test/desktop', [728, 90], 'div-gpt-ad-1596659457894-0').addService(googletag.pubads());
   // googletag.pubads().enableSingleRequest();
