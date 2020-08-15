@@ -49,8 +49,14 @@ const demotag = ((window, document, googletag) => {
       timelineIddle = document.createElement('div');
       timelineIddle.classList.add('timeline-iddle', `${currentEvent.type}`);
       // add a color visualizer to timeline iddle item
+      let iddleTiming = currentEvent.timingDiff;
+      if(iddleTiming < 1000) {
+        iddleTiming = `${iddleTiming}ms`;
+      } else {
+        iddleTiming = `${(iddleTiming/1000).toFixed(2)}s`;
+      }
       timelineIddle.insertAdjacentHTML('afterBegin', `
-        <span class="timeline-iddle-timing">${currentEvent.timingDiff}ms</span>
+        <span class="timeline-iddle-timing">${iddleTiming}</span>
       `);
       // insert timeline iddle item to the timeline element
       timelineItemsElement.lastElementChild.insertAdjacentElement('beforeBegin', timelineIddle);
