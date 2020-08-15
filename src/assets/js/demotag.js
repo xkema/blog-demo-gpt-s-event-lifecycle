@@ -1,19 +1,9 @@
-window.addEventListener('load', () => {
-  document.querySelector('.grid-graph .timelines').insertAdjacentElement('beforeEnd', demotag.slots['div-gpt-ad-9405734-1'].timelineElement);
-  document.querySelector('.grid-graph .timelines').insertAdjacentElement('beforeEnd', demotag.slots['div-gpt-ad-1596659457894-0'].timelineElement);
-});
-
 // a global object to enclose page data
 const demotag = ((window, document, googletag) => {
   /**
    * Slot events memory
    */
   const slots = {};
-  
-  /**
-   * Initial slot definition timing info
-   */
-  let initialTiming = 0;
 
   /**
    * Responds to triggered GPT events with updating demotag object and timelines
@@ -126,20 +116,13 @@ const demotag = ((window, document, googletag) => {
   const saveSlotEvent =  (gptEventName, gptEvent) => {
     // grab current time
     const now = Date.now();
-    // save each gpt slot to internal slots object with it's unique id
-    const currentSlotId = gptEvent.slot.getSlotElementId();
-    slots[currentSlotId] = slots[currentSlotId] || {
-      impressionViewableEventFired: false,
-      events: [],
-      timelineElement: createTimelineElement(currentSlotId)
-    };
     // get current internal slot object
-    const currentSlot = slots[currentSlotId];
+    const currentSlot = slots[gptEvent.slot.getSlotElementId()];
     // grab an event object and develop it with custom values
     const currentEvent = {
       type: gptEventName,
       timing: now,
-      timingDiff: (currentSlot.events.length > 0) ? now - currentSlot.events[0].timing : now - demotag.initialTiming
+      timingDiff: (currentSlot.events.length > 0) ? now - currentSlot.events[0].timing : now - currentSlot.initialTiming
     };
     // customize slot and saved slot event with event details
     if('slotVisibilityChanged' === gptEventName) {
@@ -156,39 +139,33 @@ const demotag = ((window, document, googletag) => {
     // return updated event
     return {currentEvent, currentSlot};
   };
+
+  /**
+   * Initialize and save each defined gpt slot to internal slots object with it's unique id "opt_div".
+   * This method also creates the timeline HTML element for target slot. That means timeline graph will be ready to inserted into DOM right after slot definition if DOM is ready.
+   * @param {*} adUnitPath 
+   * @param {*} size 
+   * @param {*} opt_div 
+   * @returns {googletag.Slot} GPT's original "Slot" object
+   */
+  const defineSlot = (adUnitPath, size, opt_div) => {
+    slots[opt_div] = slots[opt_div] || {
+      impressionViewableEventFired: false,
+      events: [],
+      initialTiming: Date.now(),
+      timelineElement: createTimelineElement(opt_div)
+    };
+    return googletag.defineSlot(adUnitPath, size, opt_div);
+  };
+  
   
   // demotag object exports
   return {
     slots: slots,
-    initialTiming: initialTiming,
+    defineSlot: defineSlot,
     update: update
   };
 })(window, document, googletag);
 
-// console.log(`%cdebug ::`, `color:crimson;font-weight:bold;`, demotag);
-
-// gpt definitions
-googletag.cmd.push(function() {
-  demotag.initialTiming = Date.now();
-  googletag.defineSlot('/567914328/test/desktop', [[300,250]], 'div-gpt-ad-9405734-1').addService(googletag.pubads());
-  googletag.defineSlot('/567914328/test/desktop', [728, 90], 'div-gpt-ad-1596659457894-0').addService(googletag.pubads());
-  // googletag.pubads().enableSingleRequest();
-  // googletag.pubads().enableLazyLoad({
-  //   fetchMarginPercent: 0,
-  //   renderMarginPercent: 0,
-  // });
-  // "googletag.pubads()" events are not removable
-  googletag.pubads().addEventListener('impressionViewable', (event) => { demotag.update('impressionViewable', event); });
-  googletag.pubads().addEventListener('slotOnload', (event) => { demotag.update('slotOnload', event); });
-  googletag.pubads().addEventListener('slotRenderEnded', (event) => { demotag.update('slotRenderEnded', event); });
-  googletag.pubads().addEventListener('slotRequested', (event) => { demotag.update('slotRequested', event); });
-  googletag.pubads().addEventListener('slotResponseReceived', (event) => { demotag.update('slotResponseReceived', event); });
-  googletag.pubads().addEventListener('slotVisibilityChanged', (event) => {
-    // update only if impression is not viewable for current slot
-    const targetSlot = demotag.slots[event.slot.getSlotElementId()];
-    if(targetSlot && !targetSlot.impressionViewableEventFired) {
-      demotag.update('slotVisibilityChanged', event);
-    }
-  });
-  googletag.enableServices();
-});
+// print demotag object to the console
+console.log(`%cdemotag object ::`, `color:tomato;font-weight:bold;`, demotag);
