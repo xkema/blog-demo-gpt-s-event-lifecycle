@@ -4,6 +4,16 @@ const demotag = ((window, document, googletag) => {
    * Slot events memory
    */
   const slots = {};
+  
+  /**
+   * Configuration options for page initialization
+   */
+  const defaults = {
+    enableSingleRequest: false,
+    enableLazyLoad: false,
+    fetchMarginPercent: 0,
+    renderMarginPercent: 0,
+  };
 
   /**
    * Responds to triggered GPT events with updating demotag object and timelines
@@ -82,8 +92,10 @@ const demotag = ((window, document, googletag) => {
       timelineIddle.style.flexGrow = `${iddleMargin}`;
     }
     // seal timeline element with finish string
-    if(null !== timelineItemsElement.lastElementChild && 'impressionViewable' === currentEvent.type) {
-      timelineItemsElement.lastElementChild.firstElementChild.innerHTML = 'finish';
+    if(null !== timelineItemsElement.lastElementChild) {
+      if('impressionViewable' === currentEvent.type || ('slotRenderEnded' === currentEvent.type && !currentEvent.filled)) {
+        timelineItemsElement.lastElementChild.firstElementChild.innerHTML = 'finish';
+      }
     }
   };
 
@@ -155,17 +167,52 @@ const demotag = ((window, document, googletag) => {
       initialTiming: Date.now(),
       timelineElement: createTimelineElement(opt_div)
     };
+    //
+    document.querySelector('.grid-graph .timelines').insertAdjacentElement('beforeEnd', slots[opt_div].timelineElement);
     return googletag.defineSlot(adUnitPath, size, opt_div);
   };
-  
+
+  /**
+   * Destorys page slots and artifacts for reinitialization with different options
+   */
+  const destroyPage = () => {
+    googletag.destroySlots();
+    for(slotElementId in slots) {
+      const slot = slots[slotElementId];
+      slot.timelineElement.remove();
+      // document.getElementById(slotElementId).remove();
+      delete slots[slotElementId];
+    }
+  };
+
+  /**
+   * Initializes demotag object
+   */
+  const init = () => {
+    // collect search params
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.forEach((value, key) => {
+      if(key === 'enableSingleRequest' || key === 'enableLazyLoad') {
+        demotag.settings[key] = (value === 'on') ? true : false;
+      } else if(key === 'fetchMarginPercent' || key === 'renderMarginPercent') {
+        demotag.settings[key] = parseInt(value);
+      }
+    });
+  };
   
   // demotag object exports
   return {
     slots: slots,
+    settings: Object.assign({}, defaults),
+    destroyPage: destroyPage,
     defineSlot: defineSlot,
-    update: update
+    update: update,
+    init: init
   };
 })(window, document, googletag);
+
+// initialize demotag
+demotag.init();
 
 // print demotag object to the console
 console.log(`%cdemotag object ::`, `color:tomato;font-weight:bold;`, demotag);
