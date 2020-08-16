@@ -155,6 +155,7 @@ const demotag = ((window, document, googletag) => {
   /**
    * Initialize and save each defined gpt slot to internal slots object with it's unique id "opt_div".
    * This method also creates the timeline HTML element for target slot. That means timeline graph will be ready to inserted into DOM right after slot definition if DOM is ready.
+   * @todo Move `initialTiming` to "demotag.display" method
    * @param {*} adUnitPath 
    * @param {*} size 
    * @param {*} opt_div 
