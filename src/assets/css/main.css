@@ -224,38 +224,35 @@ body {
 
 /* --- settings form */
 
-.page-settings {
+form.page-settings {
   padding: 1rem;
   border: 1px solid lightgray;
-  background-color: azure;
+  background-color: aliceblue;
 }
-.page-settings > .option {
-  margin-bottom: 1rem;
-  /* border-bottom: 1px dotted lightgray; */
-}
-.page-settings .sub-option {
-  margin-top: 1rem;
-}
-.page-settings label {
-  white-space: nowrap;
+.page-settings > .option > label {
   display: inline-block;
-  width: 16rem;
+  text-align: right;
+  min-width: 12rem;
 }
-.page-settings .sub-option {
-  padding-left: 1rem;
-  display: none;
+.page-settings > .option > .current-value {
+  display: inline-block;
+  text-align: center;
+  min-width: 10rem;
 }
-.page-settings .sub-option label {
-  width: 15rem;
+.page-settings .sub-option-disabled label,
+.page-settings .sub-option-disabled .current-value {
+  opacity: 0.5;
+  pointer-events: none;
 }
-.page-settings input[type="checkbox"]:checked ~ .sub-option {
-  display: block;
+.page-settings .current-value span {
+  font-family: monospace;
+  background-color: navy;
+  color: aliceblue;
+  border-radius: 10px;
+  padding: 0 0.5rem;
 }
 
-/* temporary fix for ad container overflows */
-[id^=google_ads_iframe_] {
-  max-width: 100%;
-}
+/* --- small screen */
 
 @media (max-width: 768px) {
   .grid-container {

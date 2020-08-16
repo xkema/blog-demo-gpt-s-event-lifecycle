@@ -1,26 +1,106 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // timelines
-  googletag.cmd.push(() => {
-    // document.querySelector('.grid-graph .timelines').insertAdjacentElement('beforeEnd', demotag.slots['div-gpt-ad-9405734-0'].timelineElement);
-    // document.querySelector('.grid-graph .timelines').insertAdjacentElement('beforeEnd', demotag.slots['div-gpt-ad-9405734-1'].timelineElement);
-  });
   // form controls
   const settingsFormElement = document.querySelector('form.page-settings');
+
+  // get form inputs manually
   const inputEnableSingleRequest = settingsFormElement.querySelector('#enableSingleRequest');
   const inputEnableLazyLoad = settingsFormElement.querySelector('#enableLazyLoad');
   const inputFetchMarginPercent = settingsFormElement.querySelector('#fetchMarginPercent');
   const inputRenderMarginPercent = settingsFormElement.querySelector('#renderMarginPercent');
-  // reset lazyload sub options
-  inputEnableLazyLoad.addEventListener('change', (event) => {
-    if(!inputEnableLazyLoad.checked) {
-      inputFetchMarginPercent.value = 0;
-      inputRenderMarginPercent.value = 0;
+
+  /**
+   * Updates "enableSingleRequest" option by an input event or setting from demotag object
+   * @param {*} event 
+   * @param {*} setting 
+   */
+  const updateEnableSingleRequest = (event, setting) => {
+    let updatedValue = null;
+    if(null !== event) {
+      updatedValue = inputEnableSingleRequest.checked;
+    } else {
+      updatedValue = setting;
+      inputEnableSingleRequest.checked = setting;
     }
-  });  
-  // reset form with current url parameters
-  inputEnableSingleRequest.checked = demotag.settings.enableSingleRequest;
-  inputEnableLazyLoad.checked = demotag.settings.enableLazyLoad;
-  inputFetchMarginPercent.value = demotag.settings.fetchMarginPercent;
-  inputRenderMarginPercent.value = demotag.settings.renderMarginPercent;
-  // settingsFormElement.addEventListener('submit', (event) => {});
+    inputEnableSingleRequest.previousElementSibling.firstChild.textContent = updatedValue ? 'enabled' : 'disabled';
+  };
+  
+  /**
+   * Updates "enableLazyLoad" option by an input event or setting from demotag object
+   * @param {*} event 
+   * @param {*} setting 
+   */
+  const updateEnableLazyLoad = (event, setting) => {
+    let updatedValue = null;
+    if(null !== event) {
+      updatedValue = inputEnableLazyLoad.checked;
+    } else {
+      updatedValue = setting;
+      inputEnableLazyLoad.checked = setting;
+    }
+    inputEnableLazyLoad.previousElementSibling.firstChild.textContent = updatedValue ? 'enabled' : 'disabled';
+    // update sub options availability and wrapper styles
+    if(updatedValue !== true) {
+      inputFetchMarginPercent.disabled = true;
+      inputRenderMarginPercent.disabled = true;
+      inputFetchMarginPercent.closest('.option').classList.add('sub-option-disabled');
+      inputRenderMarginPercent.closest('.option').classList.add('sub-option-disabled');
+    } else {
+      inputFetchMarginPercent.disabled = false;
+      inputRenderMarginPercent.disabled = false;
+      inputFetchMarginPercent.closest('.option').classList.remove('sub-option-disabled');
+      inputRenderMarginPercent.closest('.option').classList.remove('sub-option-disabled');
+    }
+  };
+  
+  /**
+   * Updates "fetchMarginPercent" option by an input event or setting from demotag object
+   * @param {*} event 
+   * @param {*} setting 
+   */
+  const updateFetchMarginPercent = (event, setting) => {
+    let updatedValue = null;
+    if(null !== event) {
+      updatedValue = inputFetchMarginPercent.value;
+    } else {
+      updatedValue = setting;
+      inputFetchMarginPercent.value = setting;
+    }
+    inputFetchMarginPercent.previousElementSibling.firstChild.textContent = `${inputFetchMarginPercent.value}`;
+  };
+  
+  /**
+   * Updates "renderMarginPercent" option by an input event or setting from demotag object
+   * @param {*} event 
+   * @param {*} setting 
+   */
+  const updateRenderMarginPercent = (event, setting) => {
+    let updatedValue = null;
+    if(null !== event) {
+      updatedValue = renderMarginPercent.value;
+    } else {
+      updatedValue = setting;
+      renderMarginPercent.value = setting;
+    }
+    renderMarginPercent.previousElementSibling.firstChild.textContent = `${renderMarginPercent.value}`;
+  };
+
+  /**
+   * Updates form with denitag settings collected from URL parameters on page load 
+   * @param {*} settings 
+   */
+  const updateForm = (settings) => {
+    updateEnableSingleRequest(null, settings.enableSingleRequest);
+    updateEnableLazyLoad(null, settings.enableLazyLoad);
+    updateFetchMarginPercent(null, settings.fetchMarginPercent);
+    updateRenderMarginPercent(null, settings.renderMarginPercent);
+  };
+
+  // add change listeners
+  inputEnableSingleRequest.addEventListener('change', updateEnableSingleRequest);
+  inputEnableLazyLoad.addEventListener('change', updateEnableLazyLoad);
+  inputFetchMarginPercent.addEventListener('input', updateFetchMarginPercent);
+  inputRenderMarginPercent.addEventListener('input', updateRenderMarginPercent);
+
+  // reset form with current url parameters on page load
+  updateForm(demotag.settings);
 });
