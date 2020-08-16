@@ -19,7 +19,7 @@
     <header class="grid-header">
       <nav class="navbar">
         <div class="navbar-brand">
-          <h1><a href="./index.html">Blog Demo</a></h1>
+          <h1><a href="./index.html">GPT Events Lifecycle</a></h1>
           <p>GPT's Viewability and Impression Timing</p>
         </div>
         <ul class="navbar-items">
@@ -35,7 +35,8 @@
     <!-- timelines wrapper -->
     <section class="grid-entrance">
       <h1>Before You Begin!</h1>
-      <p>You should always be using ad/tracker blockers. But just for this demo you must disable them temporarily. Because this demo is all about ads.</p>
+      <p><b>Ad Blocker Users</b>: You should always be using ad/tracker blockers. <u>But just for this demo you must disable ad blockers temporarily</u>. Because this demo is all about ads.</p>
+      <p><b>Users Without Ad Blocker</b>: You should definitely use an ad/tracker blocker for personal stuff! See <a href="#privacy-matters">links</a> at the end of the page.</p>
     </section>
     <!-- timelines wrapper -->
     <section class="grid-graph">
@@ -80,19 +81,19 @@
         <p>Follow timelines to observe what changes on selected GPT configuration. Here are some hints for GPT options available:</p>
         <ul>
           <li>
-            <p><strong>enableSingleRequest</strong> Enables GPT's single request mode. <a href="https://developers.google.com/doubleclick-gpt/reference#boolean-enablesinglerequest" target="_blank">@docs</a></p>
+            <p><code>enableSingleRequest</code> Enables GPT's single request mode. <a href="https://developers.google.com/doubleclick-gpt/reference#boolean-enablesinglerequest" target="_blank">@docs</a></p>
             <p>author notes</p>
           </li>
           <li>
-            <p><strong>enableLazyLoad</strong> Enables GPT's build in lazyloading feature. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
+            <p><code>enableLazyLoad</code> Enables GPT's build in lazyloading feature. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
             <p>author notes</p>
           </li>
           <li>
-            <p><strong>fetchMarginPercent</strong> Start fetching before entering viewport. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
+            <p><code>fetchMarginPercent</code> Start fetching before entering viewport. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
             <p>author notes</p>
           </li>
           <li>
-            <p><strong>renderMarginPercent</strong> Start rendering before entering viewport. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
+            <p><code>renderMarginPercent</code> Start rendering before entering viewport. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
             <p>author notes</p>
           </li>
         </ul>
@@ -102,7 +103,7 @@
       <!-- top ad description -->
       <h1>Top Slot</h1>
       <div>
-        <p>This page has 2 ad slots on sidebar element. One is at top "<code>sidebar-top-slot</code>" and the other one is at bottom "<code>sidebar-bottom-slot</code>".</p>
+        <p>This page has 2 ad slots on sidebar element. One is at top <code>sidebar-top-slot</code> and the other one is at bottom <code>sidebar-bottom-slot</code>.</p>
         <p>There is a seperator between these two ad slots to push bottom ad out of first viewport. (to observe lazyloading behaviour clearly)</p>
       </div>
       <!-- top ad -->
@@ -118,6 +119,15 @@
       <!-- bottom ad -->
       <div id='div-gpt-ad-9405734-1'> <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-9405734-1'); }); </script> </div>
     </aside>
+    <section class="grid-privacy">
+      <h1 id="privacy-matters">Ad/Tracker Blockers I Use</h1>
+      <ul>
+        <li><a href="https://getadblock.com/" target="_blank">getadblock.com</a></li>
+        <li><a href="https://duckduckgo.com/" target="_blank">duckduckgo.com</a></li>
+        <li><a href="https://www.mozilla.org/en-US/firefox/" target="_blank">mozilla.org/en-US/firefox</a></li>
+        <li><a href="https://brave.com/" target="_blank">brave.com</a></li>
+      </ul>
+    </section>
     <footer class="grid-footer">
       <p>footer</p>
     </footer>

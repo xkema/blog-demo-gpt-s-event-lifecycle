@@ -20,6 +20,18 @@ body {
   clear:both;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+code {
+  font-family: monospace;
+  background-color: whitesmoke;
+  border: 1px dotted lightgray;
+  white-space: nowrap;
+  padding: 0 5px;
+}
+
 /* --- layout */
 
 .grid-container {
@@ -31,6 +43,7 @@ body {
     "main              main              main              aside-top"
     "main              main              main              aside-middle"
     "main              main              main              aside-bottom"
+    "privacy           privacy           privacy           privacy"
     "footer            footer            footer            footer";
   grid-template-columns: auto auto auto calc( 300px + 2rem );
   grid-row-gap: 1rem;
@@ -47,35 +60,41 @@ body {
 
 .grid-entrance {
   grid-area: entrance;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .grid-graph {
   grid-area: graph;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .grid-main {
   grid-area: main;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .grid-aside-top {
   grid-area: aside-top;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .grid-aside-middle {
   grid-area: aside-middle;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .grid-aside-bottom {
   grid-area: aside-bottom;
-  padding: 1rem;
+  padding: 0 1rem;
+}
+
+.grid-privacy {
+  padding: 0 1rem;
+  grid-area: privacy;
 }
 
 .grid-footer {
+  padding: 0 1rem;
   grid-area: footer;
 }
 
@@ -134,7 +153,7 @@ body {
   padding: 2rem 1rem;
   border: 1px dotted lightgray;
   max-width: 100%;
-  background-color: white;
+  background-color: whitesmoke;
   /* overflow: auto; */
 }
 
@@ -187,7 +206,7 @@ body {
   text-align: center;
   font-family: monospace;
   font-size: 50%;
-  background-color: whitesmoke;
+  background-color: snow;
   color: darkslategray;
   border: 1px dotted lightgray;
 }
@@ -263,6 +282,7 @@ form.page-settings {
   padding: 1rem;
   border: 1px solid lightgray;
   background-color: aliceblue;
+  max-width: 768px;
 }
 .page-settings > .option {
   display: flex;
@@ -309,6 +329,7 @@ form.page-settings {
       "main"
       "aside-middle"
       "aside-bottom"
+      "privacy"
       "footer";
     grid-template-columns: auto;
     grid-row-gap: 1rem;
