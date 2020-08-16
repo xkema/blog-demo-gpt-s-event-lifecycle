@@ -30,6 +30,7 @@ body {
     "main              main              main              aside-top"
     "main              main              main              aside-bottom"
     "footer            footer            footer            footer";
+  grid-template-columns: auto auto auto 300px;
   grid-row-gap: 1rem;
   grid-column-gap: 1rem;
 }
@@ -106,6 +107,7 @@ body {
 
 .timeline-container:hover .timeline-label {
   max-width: unset;
+  background-color: white;
 }
 
 .timeline-items {
@@ -264,23 +266,19 @@ form.page-settings {
       "main"
       "aside-bottom"
       "footer";
+    grid-template-columns: auto;
     grid-row-gap: 1rem;
     grid-column-gap: 1rem;
   }
-  .timeline-iddle.start {
-    min-width: 3rem;
-  }
-  .timeline-iddle.finish {
-    min-width: 4rem;
-  }
-}
-
-@media (max-width: 550px) {
   .timeline-items {
     display: block;
   }
   .timeline-iddle.start {
+    min-width: 3rem;
     margin-bottom: var(--timeline-size);
+  }
+  .timeline-iddle.finish {
+    min-width: 4rem;
   }
   .timeline-details {
     left: unset;
