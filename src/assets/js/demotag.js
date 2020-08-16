@@ -168,7 +168,7 @@ const demotag = ((window, document, googletag) => {
       initialTiming: Date.now(),
       timelineElement: createTimelineElement(opt_div)
     };
-    //
+    // @todo Move timelines querySelector string to demotag
     document.querySelector('.grid-graph .timelines').insertAdjacentElement('beforeEnd', slots[opt_div].timelineElement);
     return googletag.defineSlot(adUnitPath, size, opt_div);
   };

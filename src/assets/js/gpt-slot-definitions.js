@@ -1,7 +1,7 @@
 // gpt definitions
 googletag.cmd.push(function() {
-  demotag.defineSlot('/567914328/test/desktop', [[300,250]], 'div-gpt-ad-9405734-0').addService(googletag.pubads());
-  demotag.defineSlot('/567914328/test/desktop', [300, 250], 'div-gpt-ad-9405734-1').addService(googletag.pubads());
+  demotag.defineSlot('/567914328/test/desktop', [[300,250]], 'sidebar-top-slot').addService(googletag.pubads());
+  demotag.defineSlot('/567914328/test/desktop', [300, 250], 'sidebar-bottom-slot').addService(googletag.pubads());
   if(demotag.settings.enableSingleRequest) {
     googletag.pubads().enableSingleRequest();    
   }

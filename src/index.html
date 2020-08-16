@@ -19,15 +19,15 @@
     <header class="grid-header">
       <nav class="navbar">
         <div class="navbar-brand">
-          <h1><a href="./index.html">GPT Events Lifecycle</a></h1>
+          <h1><a href="./index.html">GPT's Event Lifecycle</a></h1>
           <p>GPT's Viewability and Impression Timing</p>
         </div>
         <ul class="navbar-items">
           <li class="navbar-item">
-            <a href="#">navbar-item-0</a>
+            <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank">1@github</a>
           </li>
           <li class="navbar-item">
-            <a href="#">navbar-item-1</a>
+            <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank">2@github</a>
           </li>
         </ul>
       </nav>
@@ -107,7 +107,7 @@
         <p>There is a seperator between these two ad slots to push bottom ad out of first viewport. (to observe lazyloading behaviour clearly)</p>
       </div>
       <!-- top ad -->
-      <div id='div-gpt-ad-9405734-0'> <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-9405734-0'); }); </script> </div>
+      <div id='sidebar-top-slot'> <script> googletag.cmd.push(function() { googletag.display('sidebar-top-slot'); }); </script> </div>
     </aside>
     <aside class="grid-aside-middle">
       <div class="sidebar-separator">
@@ -116,20 +116,25 @@
     </aside>
     <aside class="grid-aside-bottom">
       <h1>Bottom Slot</h1>
+      <p>This slot will be used to observe lazyload behaviour.</p>
       <!-- bottom ad -->
-      <div id='div-gpt-ad-9405734-1'> <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-9405734-1'); }); </script> </div>
+      <div id='sidebar-bottom-slot'> <script> googletag.cmd.push(function() { googletag.display('sidebar-bottom-slot'); }); </script> </div>
     </aside>
     <section class="grid-privacy">
-      <h1 id="privacy-matters">Ad/Tracker Blockers I Use</h1>
-      <ul>
-        <li><a href="https://getadblock.com/" target="_blank">getadblock.com</a></li>
-        <li><a href="https://duckduckgo.com/" target="_blank">duckduckgo.com</a></li>
-        <li><a href="https://www.mozilla.org/en-US/firefox/" target="_blank">mozilla.org/en-US/firefox</a></li>
-        <li><a href="https://brave.com/" target="_blank">brave.com</a></li>
-      </ul>
+      <div class="privacy-matters-wrapper">
+        <h1 id="privacy-matters">Ad/Tracker Blockers I Use</h1>
+        <ul>
+          <li><a href="https://getadblock.com/" target="_blank">getadblock.com</a></li>
+          <li><a href="https://duckduckgo.com/" target="_blank">duckduckgo.com</a></li>
+          <li><a href="https://www.mozilla.org/en-US/firefox/" target="_blank">mozilla.org/en-US/firefox</a></li>
+          <li><a href="https://brave.com/" target="_blank">brave.com</a></li>
+        </ul>
+      </div>
     </section>
     <footer class="grid-footer">
-      <p>footer</p>
+      <div class="outro">
+        <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank">@github</a>
+      </div>
     </footer>
   </div>
 </body>
