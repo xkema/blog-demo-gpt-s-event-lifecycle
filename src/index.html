@@ -44,25 +44,25 @@
       <form class="page-settings">
         <div class="option">
           <label for="enableSingleRequest">enableSingleRequest</label>
+          <div class="input-wrapper"><input type="checkbox" name="enableSingleRequest" id="enableSingleRequest"></div>
           <div class="current-value"><span>disabled</span></div> 
-          <input type="checkbox" name="enableSingleRequest" id="enableSingleRequest">
         </div>
         <div class="option">
           <label for="enableLazyLoad">enableLazyLoad</label>
+          <div class="input-wrapper"><input type="checkbox" name="enableLazyLoad" id="enableLazyLoad"></div>
           <div class="current-value"><span>disabled</span></div> 
-          <input type="checkbox" name="enableLazyLoad" id="enableLazyLoad">
         </div>
         <div class="option sub-option">
           <label for="fetchMarginPercent">fetchMarginPercent</label>
+          <div class="input-wrapper"><input type="range" min="0" max="500" value="0" step="100" name="fetchMarginPercent" id="fetchMarginPercent"></div>
           <div class="current-value"><span>0</span></div> 
-          <input type="range" min="0" max="500" value="0" step="100" name="fetchMarginPercent" id="fetchMarginPercent">
         </div>
         <div class="option sub-option">
           <label for="renderMarginPercent">renderMarginPercent</label>
+          <div class="input-wrapper"><input type="range" min="0" max="500" value="0" step="100" name="renderMarginPercent" id="renderMarginPercent"></div>
           <div class="current-value"><span>0</span></div> 
-          <input type="range" min="0" max="500" value="0" step="100" name="renderMarginPercent" id="renderMarginPercent">
         </div>
-        <div class="option">
+        <div class="submit">
           <button type="submit">Reload Page</button>
           <span>Clicking this button will reload the page!</span>
         </div>

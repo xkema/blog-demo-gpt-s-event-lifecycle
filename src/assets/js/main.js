@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updatedValue = setting;
       inputEnableSingleRequest.checked = setting;
     }
-    inputEnableSingleRequest.previousElementSibling.firstChild.textContent = updatedValue ? 'enabled' : 'disabled';
+    inputEnableSingleRequest.parentElement.nextElementSibling.firstElementChild.textContent = updatedValue ? 'enabled' : 'disabled';
   };
   
   /**
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updatedValue = setting;
       inputEnableLazyLoad.checked = setting;
     }
-    inputEnableLazyLoad.previousElementSibling.firstChild.textContent = updatedValue ? 'enabled' : 'disabled';
+    inputEnableLazyLoad.parentElement.nextElementSibling.firstElementChild.textContent = updatedValue ? 'enabled' : 'disabled';
     // update sub options availability and wrapper styles
     if(updatedValue !== true) {
       inputFetchMarginPercent.disabled = true;
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updatedValue = setting;
       inputFetchMarginPercent.value = setting;
     }
-    inputFetchMarginPercent.previousElementSibling.firstChild.textContent = `${inputFetchMarginPercent.value}`;
+    inputFetchMarginPercent.parentElement.nextElementSibling.firstElementChild.textContent = `${inputFetchMarginPercent.value}`;
   };
   
   /**
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updatedValue = setting;
       renderMarginPercent.value = setting;
     }
-    renderMarginPercent.previousElementSibling.firstChild.textContent = `${renderMarginPercent.value}`;
+    renderMarginPercent.parentElement.nextElementSibling.firstElementChild.textContent = `${renderMarginPercent.value}`;
   };
 
   /**

@@ -230,21 +230,22 @@ form.page-settings {
   padding: 1rem;
   border: 1px solid lightgray;
   background-color: aliceblue;
+  font-family: monospace;
+}
+.page-settings > .option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 .page-settings > .option > label {
-  display: inline-block;
-  text-align: right;
-  min-width: 12rem;
+  flex-basis: 11rem;
 }
-.page-settings > .option > .current-value {
-  display: inline-block;
-  text-align: center;
-  min-width: 10rem;
+.page-settings > .option > .input-wrapper {
+  flex-grow: 1;
 }
 .page-settings .sub-option-disabled label,
 .page-settings .sub-option-disabled .current-value {
   opacity: 0.5;
-  pointer-events: none;
 }
 .page-settings .current-value span {
   font-family: monospace;
