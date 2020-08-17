@@ -95,6 +95,24 @@
           </li>
         </ul>
       </div>
+      <!-- predefined setups and description -->
+      <h2>Predefined setups</h2>
+      <div class="predefined-setups">
+        <ul>
+          <li>
+            <p><a href="./index.html?enableLazyLoad=on&fetchMarginPercent=0&renderMarginPercent=0">GPT "enableLazyLoad" (default)</a></p>
+            <p>This is the basic setup for GPT's built-in <code>enableLazyLoad</code> feature. Expected outcome is empty timelines until each slot enters into the viewport. Each timeline will be filled individually at this setup because <code>enableSingleRequest</code> option is not enabled.</p>
+            <p>There will be 2 separate network requests for each ad which you can see at your devtool's network panel by filtering requests with <code>ads?</code> keyword.</p>
+          </li>
+          <li>
+            <p><a href="./index.html?enableSingleRequest=on&enableLazyLoad=on&fetchMarginPercent=0&renderMarginPercent=0">GPT "enableLazyLoad" with "enableSingleRequest" enabled</a></p>
+            <p>When <code>enableSingleRequest</code> is enabled along with <code>enableLazyLoad</code> option, individual behaviour above will be interrupted. With this setup ad requests will be merged by GPT.</p>
+            <p>This time there will be a single network request for all ad slots at devtool's network panel. (Again, use <code>ads?</code> keyword as a filter.)</p>
+            <p>A further note, lazy fetching with <abbr title="Single Request Architecture">SRA</abbr> (<code>enableSingleRequest</code>) will only workif all slots are out of viewport at initial page load. Otherwise both slots will be fetched at page load.</p>
+            <p><b>Hint</b>: Resize your browser window to observe both. If both slots are out of margin, there will be 2 empty timelines initially. Else there will be a filled timelime for top slot and a <code>slotRequested</code> <small>&</small> <code>slotResponseReceived</code> couple for bottom slot.</p>
+          </li>
+        </ul>
+      </div>
     </main>
     <aside class="grid-aside-top">
       <!-- top ad description -->

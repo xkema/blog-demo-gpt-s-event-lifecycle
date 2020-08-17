@@ -335,9 +335,11 @@ form.page-settings {
   font-family: monospace;
 }
 
-.form-info {
+.form-info,
+.predefined-setups {
   border: 1px solid lightgray;
   padding: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 /* === small screen */
