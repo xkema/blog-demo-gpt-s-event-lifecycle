@@ -1,9 +1,16 @@
-/* --- base */
+/* === base */
 
 :root {
   --content-width: 960px;
   --sidebar-width: 300px;
   --grid-gap: 1rem;
+  --timeline-size: 14px;
+  --color-slotRequested: skyblue;
+  --color-slotResponseReceived: royalblue;
+  --color-slotRenderEnded: limegreen;
+  --color-slotOnload: gold;
+  --color-slotVisibilityChanged: pink;
+  --color-impressionViewable: deeppink;
 }
 
 body {
@@ -14,6 +21,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 code {
@@ -24,7 +33,11 @@ code {
   padding: 0 5px;
 }
 
-/* --- utilities  */
+form {
+  margin-bottom: 1.5rem;
+}
+
+/* === utilities  */
 
 *,
 *::before,
@@ -38,7 +51,7 @@ code {
   clear: both;
 }
 
-/* --- grid layout */
+/* === grid layout */
 
 .grid-container {
   display: grid;
@@ -92,14 +105,14 @@ code {
   grid-area: footer;
 }
 
-/* --- other layout */
+/* === other layout */
 
 .container {
   max-width: var(--content-width);
   margin: 0 auto;
 }
 
-/* --- site elements */
+/* === site elements */
 
 .navbar {
   display: flex;
@@ -130,10 +143,9 @@ code {
 }
 
 .timelines {
-  /* position: fixed; */
-  /* left: 10px; */
-  /* right: 10px; */
-  /* top: 10px; */
+  height: calc( ( var(--timeline-size) * 2 ) + 9rem + 4px );
+  margin-bottom: 1rem;
+  overflow: visible;
 }
 
 .sidebar-separator {
@@ -161,16 +173,19 @@ code {
   text-align: center;
 }
 
-/* --- timeline */
+/* === timeline */
 
 .timeline-container {
-  --timeline-size: 14px;
   font-family: monospace;
   margin-bottom: 1rem;
   padding: 2rem 0;
   border: 1px dotted lightgray;
   max-width: 100%;
   background-color: whitesmoke;
+}
+
+.timeline-container:last-child {
+  margin-bottom: 0;
 }
 
 .timeline-items {
@@ -214,6 +229,11 @@ code {
   background-color: snow;
   color: darkslategray;
   border: 1px dotted lightgray;
+  cursor: default;
+}
+
+.timeline-iddle-timing abbr {
+  cursor: default;
 }
 
 .timeline-iddle-timing abbr {
@@ -221,12 +241,6 @@ code {
 }
 
 .timeline-item {
-  --color-slotRequested: skyblue;
-  --color-slotResponseReceived: royalblue;
-  --color-slotRenderEnded: limegreen;
-  --color-slotOnload: gold;
-  --color-slotVisibilityChanged: pink;
-  --color-impressionViewable: deeppink;
   position: relative;
 }
 
@@ -275,6 +289,7 @@ code {
   padding: 0 1px;
   background-color: snow;
   white-space: nowrap;
+  cursor: default;
 }
 
 .timeline-details {
@@ -285,7 +300,7 @@ code {
   text-align: center;
 }
 
-/* --- settings form */
+/* === settings form */
 
 form.page-settings {
   padding: 1rem;
@@ -316,6 +331,7 @@ form.page-settings {
   padding: 0 0.5rem;
 }
 .page-settings > .submit {
+  margin-top: 1rem;
   font-family: monospace;
 }
 
@@ -324,7 +340,7 @@ form.page-settings {
   padding: 1rem;
 }
 
-/* --- small screen */
+/* === small screen */
 
 @media (max-width: 768px) {
   .grid-container {

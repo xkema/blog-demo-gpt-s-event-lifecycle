@@ -24,10 +24,7 @@
         </div>
         <ul class="navbar-items">
           <li class="navbar-item">
-            <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank">1@github</a>
-          </li>
-          <li class="navbar-item">
-            <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank">2@github</a>
+            <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank">@github</a>
           </li>
         </ul>
       </nav>
@@ -107,7 +104,13 @@
         <p>There is a seperator between these two ad slots to push bottom ad out of first viewport. (to observe lazyloading behaviour clearly)</p>
       </div>
       <!-- top ad -->
-      <div id='sidebar-top-slot'> <script> googletag.cmd.push(function() { googletag.display('sidebar-top-slot'); }); </script> </div>
+      <div id='sidebar-top-slot'>
+        <script>
+          googletag.cmd.push(function () {
+            googletag.display('sidebar-top-slot');
+          });
+        </script>
+      </div>
     </aside>
     <aside class="grid-aside-middle">
       <div class="sidebar-separator">
@@ -118,7 +121,13 @@
       <h1>Bottom Slot</h1>
       <p>This slot will be used to observe lazyload behaviour.</p>
       <!-- bottom ad -->
-      <div id='sidebar-bottom-slot'> <script> googletag.cmd.push(function() { googletag.display('sidebar-bottom-slot'); }); </script> </div>
+      <div id='sidebar-bottom-slot'>
+        <script>
+          googletag.cmd.push(function () {
+            googletag.display('sidebar-bottom-slot');
+          });
+        </script>
+      </div>
     </aside>
     <section class="grid-privacy">
       <div class="privacy-matters-wrapper">

@@ -57,7 +57,7 @@ const demotag = ((window, document, googletag) => {
       }
       timelineIddle.insertAdjacentHTML('afterBegin', `
         <div class="timeline-iddle-timing">
-          <span>${iddleTiming}</span>
+          <span title="${iddleTiming}">${iddleTiming}</span>
           <abbr title="${iddleTiming}">d</abbr>
         </div>`);
       // insert timeline iddle item to the timeline element
