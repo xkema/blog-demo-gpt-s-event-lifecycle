@@ -167,27 +167,15 @@ code {
   --timeline-size: 14px;
   font-family: monospace;
   margin-bottom: 1rem;
-  padding: 2rem 1rem;
+  padding: 2rem 0;
   border: 1px dotted lightgray;
   max-width: 100%;
   background-color: whitesmoke;
-  /* overflow: auto; */
-}
-
-.timeline-container:hover .timeline-label {
-  max-width: unset;
-  background-color: white;
 }
 
 .timeline-items {
   display: flex;
   align-items: center;
-}
-
-.timeline-items::after {
-  display: block;
-  content: "";
-  clear: both;
 }
 
 .timeline-iddle {
@@ -226,6 +214,10 @@ code {
   background-color: snow;
   color: darkslategray;
   border: 1px dotted lightgray;
+}
+
+.timeline-iddle-timing abbr {
+  display: none;
 }
 
 .timeline-item {
@@ -274,17 +266,17 @@ code {
 
 .timeline-label {
   position: absolute;
-  left: calc( var(--timeline-size) * 1.5 );
-  top: 0;
-  transform-origin: calc( var(--timeline-size) * -1 ) center;
-  transform: rotate(-45deg);
-  transition: all .2s ease-in;
-  max-width: 3rem;
-  overflow: hidden;
+  left: 0;
+  bottom: calc( var(--timeline-size) * 1.5 );
+  transform-origin: calc( var(--timeline-size) * 1 ) center;
+  transform: rotate(-15deg);
+  /* transition: all .2s ease-in; */
+  border: 1px dotted lightgray;
+  padding: 0 1px;
+  background-color: snow;
   white-space: nowrap;
-  text-overflow: ellipsis;
-  text-decoration: underline;
 }
+
 .timeline-details {
   position: absolute;
   left: calc( var(--timeline-size) * -1 );
@@ -356,25 +348,23 @@ form.page-settings {
   form.page-settings {
     padding: 0.75rem;
   }
-  .timeline-items {
-    display: block;
+  .timeline-iddle-timing span {
+    display: none;
   }
+  .timeline-iddle-timing abbr {
+    display: inline;
+  }
+  
   .timeline-iddle.start {
     min-width: 3rem;
-    margin-bottom: var(--timeline-size);
   }
   .timeline-iddle.finish {
     min-width: 4rem;
   }
-  .timeline-details {
-    left: unset;
-    top: 0;
-    right: 0;
-  }
   .timeline-label {
-    transform: unset;
-    max-width: unset;
-    text-decoration: none;
-    top: 1px;
+    transform: rotate(-25deg);        
+    max-width: 5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

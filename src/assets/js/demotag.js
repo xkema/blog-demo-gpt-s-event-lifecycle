@@ -43,7 +43,7 @@ const demotag = ((window, document, googletag) => {
       // add a color visualizer and header to timeline item
       timelineItem.insertAdjacentHTML('afterBegin', `
         <span class="timeline-timing">&nbsp;</span>
-        <span class="timeline-label">${currentEvent.type}</span>
+        <span class="timeline-label" title="${currentEvent.type}">${currentEvent.type}</span>
       `);
       // add iddle timing indicator
       timelineIddle = document.createElement('div');
@@ -56,8 +56,10 @@ const demotag = ((window, document, googletag) => {
         iddleTiming = `${(iddleTiming/1000).toFixed(2)}s`;
       }
       timelineIddle.insertAdjacentHTML('afterBegin', `
-        <span class="timeline-iddle-timing">${iddleTiming}</span>
-      `);
+        <div class="timeline-iddle-timing">
+          <span>${iddleTiming}</span>
+          <abbr title="${iddleTiming}">d</abbr>
+        </div>`);
       // insert timeline iddle item to the timeline element
       timelineItemsElement.lastElementChild.insertAdjacentElement('beforeBegin', timelineIddle);
       // insert timeline item to the timeline element
@@ -94,7 +96,9 @@ const demotag = ((window, document, googletag) => {
     // seal timeline element with finish string
     if(null !== timelineItemsElement.lastElementChild) {
       if('impressionViewable' === currentEvent.type || ('slotRenderEnded' === currentEvent.type && !currentEvent.filled)) {
-        timelineItemsElement.lastElementChild.firstElementChild.innerHTML = 'finish';
+        timelineItemsElement.lastElementChild.firstElementChild.firstElementChild.textContent = 'finish';
+        timelineItemsElement.lastElementChild.firstElementChild.lastElementChild.textContent = 'f';
+        timelineItemsElement.lastElementChild.firstElementChild.lastElementChild.title = 'finish';
       }
     }
   };
@@ -110,10 +114,16 @@ const demotag = ((window, document, googletag) => {
     element.insertAdjacentHTML('afterBegin', `
       <div class="timeline-items">
         <div class="timeline-iddle start">
-          <span class="timeline-iddle-timing">start</span>
+          <div class="timeline-iddle-timing">
+            <span>start</span>
+            <abbr title="start">s</abbr>
+          </div>
         </div>
         <div class="timeline-iddle finish">
-          <span class="timeline-iddle-timing">waiting-next-event</span>
+          <div class="timeline-iddle-timing">
+            <span>waiting-next-event</span>
+            <abbr title="waiting-next-event">wne</abbr>
+          </div>
         </div>
       </div>`);
     return element;
