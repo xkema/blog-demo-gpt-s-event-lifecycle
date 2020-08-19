@@ -103,4 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // reset form with current url parameters on page load
   updateForm(demotag.settings);
+
+  // set pin buttons
+  document.querySelector('.pin-button.pin-timelines').addEventListener('click', (event) => {
+    document.querySelector('.grid-graph').classList.toggle('pinned');
+  });
+  document.querySelector('.pin-button.pin-form').addEventListener('click', (event) => {
+    document.querySelector('.form-wrapper').classList.toggle('pinned');
+  });
 });

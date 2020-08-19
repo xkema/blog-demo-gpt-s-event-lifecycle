@@ -40,44 +40,63 @@
     </section>
     <!-- timelines wrapper -->
     <section class="grid-graph">
-      <h1>Event Timelines</h1>
-      <div class="timelines"><!-- timelines --></div>
+      <div class="pin-title">
+        <h1>Event Timelines</h1>
+        <button type="button" class="pin-button pin-timelines" title="pin/unpin panel">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.456.734a1.75 1.75 0 012.826.504l.613 1.327a3.081 3.081 0 002.084 1.707l2.454.584c1.332.317 1.8 1.972.832 2.94L11.06 10l3.72 3.72a.75.75 0 11-1.061 1.06L10 11.06l-2.204 2.205c-.968.968-2.623.5-2.94-.832l-.584-2.454a3.081 3.081 0 00-1.707-2.084l-1.327-.613a1.75 1.75 0 01-.504-2.826L4.456.734zM5.92 1.866a.25.25 0 00-.404-.072L1.794 5.516a.25.25 0 00.072.404l1.328.613A4.582 4.582 0 015.73 9.63l.584 2.454a.25.25 0 00.42.12l5.47-5.47a.25.25 0 00-.12-.42L9.63 5.73a4.581 4.581 0 01-3.098-2.537L5.92 1.866z"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="timelines">
+        <!-- timelines -->
+      </div>
     </section>
     <!-- main content -->
     <main class="grid-main">
       <h1>GPT Lifecycle Events</h1>
       <p>A simple playground page for GPT lifecycle events for display ads.</p>
-      <h2>Customization Form</h2>
-      <!-- customization form -->
-      <form class="page-settings">
-        <div class="option">
-          <label for="enableSingleRequest">enableSingleRequest</label>
-          <div class="input-wrapper"><input type="checkbox" name="enableSingleRequest" id="enableSingleRequest"></div>
-          <div class="current-value"><span>disabled</span></div> 
+      <div class="form-wrapper">
+        <div class="pin-title">
+          <h2>Customization Form</h2>
+          <button type="button" class="pin-button pin-form" title="pin/unpin panel">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+              <path fill-rule="evenodd" d="M4.456.734a1.75 1.75 0 012.826.504l.613 1.327a3.081 3.081 0 002.084 1.707l2.454.584c1.332.317 1.8 1.972.832 2.94L11.06 10l3.72 3.72a.75.75 0 11-1.061 1.06L10 11.06l-2.204 2.205c-.968.968-2.623.5-2.94-.832l-.584-2.454a3.081 3.081 0 00-1.707-2.084l-1.327-.613a1.75 1.75 0 01-.504-2.826L4.456.734zM5.92 1.866a.25.25 0 00-.404-.072L1.794 5.516a.25.25 0 00.072.404l1.328.613A4.582 4.582 0 015.73 9.63l.584 2.454a.25.25 0 00.42.12l5.47-5.47a.25.25 0 00-.12-.42L9.63 5.73a4.581 4.581 0 01-3.098-2.537L5.92 1.866z"></path>
+            </svg>
+          </button>
         </div>
-        <div class="option">
-          <label for="enableLazyLoad">enableLazyLoad</label>
-          <div class="input-wrapper"><input type="checkbox" name="enableLazyLoad" id="enableLazyLoad"></div>
-          <div class="current-value"><span>disabled</span></div> 
-        </div>
-        <div class="option sub-option">
-          <label for="fetchMarginPercent">fetchMarginPercent</label>
-          <div class="input-wrapper"><input type="range" min="0" max="500" value="0" step="100" name="fetchMarginPercent" id="fetchMarginPercent"></div>
-          <div class="current-value"><span>0</span></div> 
-        </div>
-        <div class="option sub-option">
-          <label for="renderMarginPercent">renderMarginPercent</label>
-          <div class="input-wrapper"><input type="range" min="0" max="500" value="0" step="100" name="renderMarginPercent" id="renderMarginPercent"></div>
-          <div class="current-value"><span>0</span></div> 
-        </div>
-        <div class="submit">
-          <button type="submit">Reload Page</button>
-        </div>
-      </form>
+        <!-- customization form -->
+        <form class="page-settings">
+          <div class="option">
+            <label for="enableSingleRequest">enableSingleRequest</label>
+            <div class="input-wrapper"><input type="checkbox" name="enableSingleRequest" id="enableSingleRequest"></div>
+            <div class="current-value"><span>disabled</span></div> 
+          </div>
+          <div class="option">
+            <label for="enableLazyLoad">enableLazyLoad</label>
+            <div class="input-wrapper"><input type="checkbox" name="enableLazyLoad" id="enableLazyLoad"></div>
+            <div class="current-value"><span>disabled</span></div> 
+          </div>
+          <div class="option sub-option">
+            <label for="fetchMarginPercent">fetchMarginPercent</label>
+            <div class="input-wrapper"><input type="range" min="0" max="500" value="0" step="100" name="fetchMarginPercent" id="fetchMarginPercent"></div>
+            <div class="current-value"><span>0</span></div> 
+          </div>
+          <div class="option sub-option">
+            <label for="renderMarginPercent">renderMarginPercent</label>
+            <div class="input-wrapper"><input type="range" min="0" max="500" value="0" step="100" name="renderMarginPercent" id="renderMarginPercent"></div>
+            <div class="current-value"><span>0</span></div> 
+          </div>
+          <div class="submit">
+            <button type="submit">Reload Page</button>
+          </div>
+        </form>
+      </div>
       <!-- customization form details and description -->
-      <h2>Description</h2>
+      <h2>Info & Definitions</h2>
       <div class="form-info">
         <p>Use the form above to change GPT options. Clicking submit button will reload the page with selected configuration.</p>
+        <hr>
         <p>Follow timelines to observe what changes on selected GPT configuration. Here are some hints for GPT options available:</p>
         <ul>
           <li>
@@ -97,6 +116,8 @@
             <p>Postpones rendering of slot content which also means postponing impression requests until slot enters the render margin percent.</p>
           </li>
         </ul>
+        <hr>
+      <p><code>googletag.pubads().refresh()</code> method doesn't update timelines to keep things simple. This demo only shows initial events for each slot.</p>
       </div>
       <!-- predefined setups and description -->
       <h2>Predefined setups</h2>
