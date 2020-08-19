@@ -11,6 +11,7 @@ googletag.cmd.push(function() {
       renderMarginPercent: demotag.settings.renderMarginPercent
     });
   }
+  googletag.pubads().setCentering(true);
   // listen to pubads events
   googletag.pubads().addEventListener('impressionViewable', (event) => { demotag.update('impressionViewable', event); });
   googletag.pubads().addEventListener('slotOnload', (event) => { demotag.update('slotOnload', event); });

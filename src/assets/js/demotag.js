@@ -4,6 +4,11 @@ const demotag = ((window, document, googletag) => {
    * Slot events memory
    */
   const slots = {};
+
+  /**
+   * Contatiner quer selector for timelines
+   */
+  const timelinesContainerSelector = '.grid-graph .timelines';
   
   /**
    * Configuration options for page initialization
@@ -163,6 +168,19 @@ const demotag = ((window, document, googletag) => {
   };
 
   /**
+   * Appends created timeline element to the page
+   * @param {*} timeline 
+   */
+  const appendTimelineToPage = (timeline) => {
+    const timelinesContainerElement = document.querySelector(timelinesContainerSelector);
+    if(null !== timelinesContainerElement) {
+      timelinesContainerElement.insertAdjacentElement('beforeEnd', timeline);
+    } else {
+      console.log(`%cdebug ::`, `color:crimson;font-weight:bold;`, `No "timelinesContainerElement" found on the page, check demotag object's "${timelinesContainerSelector}" query selector string!`);
+    }
+  };
+
+  /**
    * Initialize and save each defined gpt slot to internal slots object with it's unique id "opt_div".
    * This method also creates the timeline HTML element for target slot. That means timeline graph will be ready to inserted into DOM right after slot definition if DOM is ready.
    * @todo Move `initialTiming` to "demotag.display" method
@@ -178,8 +196,16 @@ const demotag = ((window, document, googletag) => {
       initialTiming: Date.now(),
       timelineElement: createTimelineElement(opt_div)
     };
-    // @todo Move timelines querySelector string to demotag
-    document.querySelector('.grid-graph .timelines').insertAdjacentElement('beforeEnd', slots[opt_div].timelineElement);
+    // append timeline to the page
+    if(document.readyState === 'loading') {
+      document.addEventListener('readystatechange', (event) => {
+        if (event.target.readyState === 'interactive') {
+          appendTimelineToPage(slots[opt_div].timelineElement);
+        }
+      });
+    } else {
+      appendTimelineToPage(slots[opt_div].timelineElement);
+    }
     return googletag.defineSlot(adUnitPath, size, opt_div);
   };
 

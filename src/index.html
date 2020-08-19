@@ -26,6 +26,9 @@
           <li class="navbar-item">
             <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank">@github</a>
           </li>
+          <li class="navbar-item">
+            <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank">@post</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -78,20 +81,20 @@
         <p>Follow timelines to observe what changes on selected GPT configuration. Here are some hints for GPT options available:</p>
         <ul>
           <li>
-            <p><code>enableSingleRequest</code> Enables GPT's single request mode. <a href="https://developers.google.com/doubleclick-gpt/reference#boolean-enablesinglerequest" target="_blank">@docs</a></p>
-            <p>author notes</p>
+            <p><code>enableSingleRequest</code> Combines fetching of all ad requests into a a single HTTP Request. <a href="https://developers.google.com/doubleclick-gpt/reference#boolean-enablesinglerequest" target="_blank">@docs</a></p>
+            <p>Timing info on the timelines for <code>slotRequested</code> events might differ event if this mode is enabled. Because timeline values are slot definition times not the request times.</p>
           </li>
           <li>
             <p><code>enableLazyLoad</code> Enables GPT's build in lazyloading feature. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
-            <p>author notes</p>
+            <p>Lazyloading helps with reducing page load time by pausing initial requests on page load. It also heps with closing the gap between impressions and viewability metrics.</p>
           </li>
           <li>
             <p><code>fetchMarginPercent</code> Start fetching before entering viewport. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
-            <p>author notes</p>
+            <p>Use fetch margin to decide when to send slot requests. <code>0</code> for right after entering the viewport, <code>100</code> for before <code>1vw</code> etc...</p>
           </li>
           <li>
             <p><code>renderMarginPercent</code> Start rendering before entering viewport. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
-            <p>author notes</p>
+            <p>Postpones rendering of slot content which also means postponing impression requests until slot enters the render margin percent.</p>
           </li>
         </ul>
       </div>
@@ -100,7 +103,7 @@
       <div class="predefined-setups">
         <ul>
           <li>
-            <p><a href="./index.html?enableLazyLoad=on&fetchMarginPercent=0&renderMarginPercent=0">GPT "enableLazyLoad" (default)</a></p>
+            <p><a href="./index.html?enableLazyLoad=on&fetchMarginPercent=0&renderMarginPercent=0">GPT "enableLazyLoad" (default lazyloading setup)</a></p>
             <p>This is the basic setup for GPT's built-in <code>enableLazyLoad</code> feature. Expected outcome is empty timelines until each slot enters into the viewport. Each timeline will be filled individually at this setup because <code>enableSingleRequest</code> option is not enabled.</p>
             <p>There will be 2 separate network requests for each ad which you can see at your devtool's network panel by filtering requests with <code>ads?</code> keyword.</p>
           </li>
@@ -108,8 +111,12 @@
             <p><a href="./index.html?enableSingleRequest=on&enableLazyLoad=on&fetchMarginPercent=0&renderMarginPercent=0">GPT "enableLazyLoad" with "enableSingleRequest" enabled</a></p>
             <p>When <code>enableSingleRequest</code> is enabled along with <code>enableLazyLoad</code> option, individual behaviour above will be interrupted. With this setup ad requests will be merged by GPT.</p>
             <p>This time there will be a single network request for all ad slots at devtool's network panel. (Again, use <code>ads?</code> keyword as a filter.)</p>
-            <p>A further note, lazy fetching with <abbr title="Single Request Architecture">SRA</abbr> (<code>enableSingleRequest</code>) will only workif all slots are out of viewport at initial page load. Otherwise both slots will be fetched at page load.</p>
-            <p><b>Hint</b>: Resize your browser window to observe both. If both slots are out of margin, there will be 2 empty timelines initially. Else there will be a filled timelime for top slot and a <code>slotRequested</code> <small>&</small> <code>slotResponseReceived</code> couple for bottom slot.</p>
+            <p>A further note, lazy fetching with <abbr title="Single Request Architecture">SRA</abbr> (<code>enableSingleRequest</code>) will only work if all slots are out of viewport at initial page load. Otherwise both slots will be fetched at page load.</p>
+            <p><b>Hint</b>: Resize your browser window vertically to observe both. If both slots are out of the viewport, there will be 2 empty timelines initially. Else there will be a filled timelime for top slot and a <code>slotRequested</code> <small>&</small> <code>slotResponseReceived</code> couple for bottom slot.</p>
+          </li>
+          <li>
+            <p><a href="./index.html">Basic setup without "enableSingleRequest" and "enableLazyLoad"</a></p>
+            <p>This is the initial setup for this demo page. Without single request and lazyloading. </p>
           </li>
         </ul>
       </div>
@@ -161,6 +168,7 @@
     <footer class="grid-footer">
       <div class="outro">
         <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank">@github</a>
+        <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank">@post</a>
       </div>
     </footer>
   </div>
