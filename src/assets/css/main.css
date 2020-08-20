@@ -25,6 +25,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.5rem;
 }
 
+p {
+  line-height: 1.25;
+}
+
 code {
   font-family: monospace;
   background-color: whitesmoke;
@@ -222,30 +226,19 @@ button svg {
   position: absolute;
   right: 0;
   top: 0;
-  /* border-radius: 16px; */
 }
 
 .grid-graph.pinned {
   position: sticky;
   top: 1rem;
   background-color: white;
-  border: 1px solid midnightblue;
+  border: 1px solid lightgray;
   padding: 1rem;
   z-index: 1;
 }
 
-.form-wrapper.pinned {
-  position: sticky;
-  top: calc( 100% - 19rem );
-  padding: 1rem;
-  border: 1px solid midnightblue;
-  background-color: white;
-}
-
-.grid-graph.pinned .pin-button,
-.form-wrapper.pinned .pin-button {
-  /* background-color: midnightblue; */
-  border: 1px solid midnightblue;
+.grid-graph.pinned .pin-button {
+  border: 1px solid lightgray;
 }
 
 /* === timeline */

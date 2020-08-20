@@ -108,7 +108,4 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.pin-button.pin-timelines').addEventListener('click', (event) => {
     document.querySelector('.grid-graph').classList.toggle('pinned');
   });
-  document.querySelector('.pin-button.pin-form').addEventListener('click', (event) => {
-    document.querySelector('.form-wrapper').classList.toggle('pinned');
-  });
 });
