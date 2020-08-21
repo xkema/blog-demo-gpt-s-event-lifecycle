@@ -115,13 +115,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let libraryAvailableInfoElement = gridEntranceElement.querySelector('.library-available-info');
   const libraryAvailableTimerId = window.setInterval(() => {
     // stop checking if everything is good to go
-    if('undefined' !== typeof googletag && googletag && googletag.apiReady) {
+    if('undefined' !== typeof googletag && googletag.apiReady) {
+      if(null !== libraryAvailableInfoElement) {
+        libraryAvailableInfoElement.textContent = `${numLibraryAvailableCheckes} seconds passed and googletag api is now ready. Slow network connections may cause this. This message will dissappear in 5 seconds.`;
+        const restoreTimerId = window.setTimeout(() => {
+          window.clearTimeout(restoreTimerId);
+          libraryAvailableInfoElement.remove();
+        }, 5000);
+      }
       window.clearInterval(libraryAvailableTimerId);
     } else {
       // else start timer checks
       numLibraryAvailableCheckes++;
       if(numLibraryAvailableCheckes > 25) {
-        libraryAvailableInfoElement.textContent = `Nearly half a minute has passed and there is no googletag api activity. Stopping availability checker. You should disable ad/tracker blockers temporarily!`;
+        libraryAvailableInfoElement.textContent = `Nearly half a minute has passed and there is no googletag api activity. You should disable ad/tracker blockers temporarily!`;
         window.clearInterval(libraryAvailableTimerId);
       } else if(0 === numLibraryAvailableCheckes % 5) {
         if('undefined' === typeof googletag || (googletag && !googletag.apiReady)) {

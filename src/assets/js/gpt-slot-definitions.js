@@ -15,7 +15,10 @@ googletag.cmd.push(function() {
   // listen to pubads events
   googletag.pubads().addEventListener('impressionViewable', (event) => { demotag.update('impressionViewable', event); });
   googletag.pubads().addEventListener('slotOnload', (event) => { demotag.update('slotOnload', event); });
-  googletag.pubads().addEventListener('slotRenderEnded', (event) => { demotag.update('slotRenderEnded', event); });
+  googletag.pubads().addEventListener('slotRenderEnded', (event) => {
+    console.log(`%c${event.slot.getSlotElementId()} ::`, `color:green;font-weight:bold;`, `slotRenderEnded ${event.slot.getAdUnitPath()} ${!event.isEmpty}`);
+    demotag.update('slotRenderEnded', event);
+  });
   googletag.pubads().addEventListener('slotRequested', (event) => { demotag.update('slotRequested', event); });
   googletag.pubads().addEventListener('slotResponseReceived', (event) => { demotag.update('slotResponseReceived', event); });
   googletag.pubads().addEventListener('slotVisibilityChanged', (event) => {

@@ -41,7 +41,7 @@
       <p><b>Users Without Ad Blocker</b>: You should definitely use an ad/tracker blocker for personal stuff! See some starter <a href="#privacy-matters">links</a> at the end of the page.</p>
     </section>
     <!-- timelines wrapper -->
-    <section class="grid-graph">
+    <section class="grid-graph pinned">
       <div class="pin-title">
         <h1>Event Timelines</h1>
         <button type="button" class="pin-button pin-timelines" title="pin/unpin panel">
@@ -145,7 +145,8 @@
         <p>There is a seperator between these two ad slots to push bottom slot out of first viewport. (to observe lazyloading behaviour clearly)</p>
       </div>
       <!-- top slot -->
-      <div id='sidebar-top-slot'>
+      <div id="sidebar-top-slot" class="sidebar-slot">
+        <span class="placeholder">sidebar-top-slot</span>
         <script>
           googletag.cmd.push(function () {
             googletag.display('sidebar-top-slot');
@@ -162,7 +163,8 @@
       <h1>Bottom Slot</h1>
       <p>This slot will be used to observe lazyload behaviour.</p>
       <!-- bottom slot -->
-      <div id='sidebar-bottom-slot'>
+      <div id="sidebar-bottom-slot" class="sidebar-slot">
+        <span class="placeholder">sidebar-bottom-slot</span>
         <script>
           googletag.cmd.push(function () {
             googletag.display('sidebar-bottom-slot');

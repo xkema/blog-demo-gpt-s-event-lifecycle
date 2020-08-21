@@ -3,7 +3,8 @@
 :root {
   --content-width: 960px;
   --sidebar-width: 300px;
-  --grid-gap: 1rem;
+  --grid-column-gap: 1rem;
+  --grid-row-gap: 2rem;
   --timeline-size: 14px;
   --color-slotRequested: skyblue;
   --color-slotResponseReceived: royalblue;
@@ -101,9 +102,9 @@ button svg {
     ".           main         aside-bottom      ."
     "privacy     privacy      privacy     privacy"
     "footer      footer       footer       footer";
-  grid-template-columns: 1fr minmax(min-content, calc( var(--content-width) - var(--sidebar-width) - var(--grid-gap) )) var(--sidebar-width) 1fr;
-  grid-row-gap: var(--grid-gap);
-  grid-column-gap: var(--grid-gap);
+  grid-template-columns: 1fr minmax(min-content, calc( var(--content-width) - var(--sidebar-width) - var(--grid-column-gap) )) var(--sidebar-width) 1fr;
+  grid-row-gap: var(--grid-row-gap);
+  grid-column-gap: var(--grid-column-gap);
 }
 
 .grid-header {
@@ -188,6 +189,21 @@ button svg {
   overflow: visible;
 }
 
+.sidebar-slot {
+  text-align: center;
+}
+
+.sidebar-slot .placeholder {
+  display: inline-block;
+  background-color: ghostwhite;
+  color: gray;
+  min-height: 250px;
+  line-height: 250px;
+  width: 100%;
+  max-width: 300px;
+  font-family: monospace;
+}
+
 .sidebar-separator {
   background-color: whitesmoke;
   color: gray;
@@ -222,23 +238,29 @@ button svg {
   position: relative;
 }
 
-.pin-button {
+button.pin-button {
   position: absolute;
   right: 0;
   top: 0;
+  transition: transform 200ms ease-in;
+  outline: none;
+}
+
+.grid-graph {
+  transition: padding 200ms ease-in;
 }
 
 .grid-graph.pinned {
   position: sticky;
   top: 1rem;
-  background-color: white;
+  background-color: ghostwhite;
   border: 1px solid lightgray;
   padding: 1rem;
   z-index: 1;
 }
 
 .grid-graph.pinned .pin-button {
-  border: 1px solid lightgray;
+  transform: rotate(45deg);
 }
 
 .warning-box {
@@ -371,7 +393,6 @@ button svg {
   bottom: calc( var(--timeline-size) * 1.5 );
   transform-origin: calc( var(--timeline-size) * 1 ) center;
   transform: rotate(-15deg);
-  /* transition: all .2s ease-in; */
   border: 1px dotted lightgray;
   padding: 0 1px;
   background-color: snow;
@@ -461,6 +482,9 @@ form.page-settings {
   }
   form.page-settings {
     padding: 0.75rem;
+  }
+  .grid-graph.pinned {
+    padding: 0.5rem;
   }
   .timeline-iddle-timing span {
     display: none;
