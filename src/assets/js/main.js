@@ -108,4 +108,31 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.pin-button.pin-timelines').addEventListener('click', (event) => {
     document.querySelector('.grid-graph').classList.toggle('pinned');
   });
+
+  // set gpt library status checker
+  let numLibraryAvailableCheckes = 0;
+  const gridEntranceElement = document.querySelector('.grid-entrance');
+  let libraryAvailableInfoElement = gridEntranceElement.querySelector('.library-available-info');
+  const libraryAvailableTimerId = window.setInterval(() => {
+    // stop checking if everything is good to go
+    if('undefined' !== typeof googletag && googletag && googletag.apiReady) {
+      window.clearInterval(libraryAvailableTimerId);
+    } else {
+      // else start timer checks
+      numLibraryAvailableCheckes++;
+      if(numLibraryAvailableCheckes > 25) {
+        libraryAvailableInfoElement.textContent = `Nearly half a minute has passed and there is no googletag api activity. Stopping availability checker. You should disable ad/tracker blockers temporarily!`;
+        window.clearInterval(libraryAvailableTimerId);
+      } else if(0 === numLibraryAvailableCheckes % 5) {
+        if('undefined' === typeof googletag || (googletag && !googletag.apiReady)) {
+          if(null === libraryAvailableInfoElement) {
+            libraryAvailableInfoElement = document.createElement('p');
+            libraryAvailableInfoElement.classList.add('error-box');
+            gridEntranceElement.insertAdjacentElement('afterBegin', libraryAvailableInfoElement);
+          }
+          libraryAvailableInfoElement.textContent = `${numLibraryAvailableCheckes} seconds passed and there is no googletag api activity. Disable ad/tracker blockers temporarily to see the demo.`;
+        }
+      }
+    }
+  }, 1000);
 });
