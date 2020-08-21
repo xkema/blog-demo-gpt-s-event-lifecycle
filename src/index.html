@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="blog-demo-gpt-s-viewability-and-impression-timing">
-  <title>blog-demo-gpt-s-viewability-and-impression-timing</title>
+  <title>A simple playground page for GPT (Google Publisher Tools) lifecycle events for display ads.</title>
   <link rel="stylesheet" href="assets/css/normalize.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
@@ -35,8 +35,10 @@
     <!-- timelines wrapper -->
     <section class="grid-entrance">
       <h1>Before You Begin!</h1>
+      <p class="warning-box">This is a demo for developers whose main development focus is display ads. This is an uncommon topic for most of the front end developers. If you're not working for a digital publisher, I can't say there is much for you here, sadly. So here is a good place to decide leaving and finding something funnier to read for yourself!</p>
+      <hr>
       <p><b>Ad Blocker Users</b>: You should always be using ad/tracker blockers. <u>But just for this demo you must disable ad blockers temporarily</u>. Because this demo is all about ads.</p>
-      <p><b>Users Without Ad Blocker</b>: You should definitely use an ad/tracker blocker for personal stuff! See <a href="#privacy-matters">links</a> at the end of the page.</p>
+      <p><b>Users Without Ad Blocker</b>: You should definitely use an ad/tracker blocker for personal stuff! See some starter <a href="#privacy-matters">links</a> at the end of the page.</p>
     </section>
     <!-- timelines wrapper -->
     <section class="grid-graph">
@@ -54,8 +56,8 @@
     </section>
     <!-- main content -->
     <main class="grid-main">
-      <h1>GPT Lifecycle Events</h1>
-      <p>A simple playground page for GPT lifecycle events for display ads.</p>
+      <h1>GPT Events</h1>
+      <p>From requesting ads to counting them as impressions, <abbr title="Google Publisher Tools">GPT</abbr> library triggers various events to inform page about current slot statuses. GPT options <code>enableSingleRequest</code> and <code>enableLazyLoad</code> change event triggering times in various ways.</p>
       <div class="form-wrapper">
         <h2>Customization Form</h2>
         <!-- customization form -->
@@ -86,7 +88,7 @@
         </form>
       </div>
       <!-- customization form details and description -->
-      <h2>Info & Definitions</h2>
+      <h2>Customization Info & Definitions</h2>
       <div class="form-info">
         <p>Use the form above to change GPT options. Clicking submit button will reload the page with selected configuration.</p>
         <hr>
@@ -136,13 +138,13 @@
       </div>
     </main>
     <aside class="grid-aside-top">
-      <!-- top ad description -->
+      <!-- top slot description -->
       <h1>Top Slot</h1>
       <div>
         <p>This page has 2 ad slots on sidebar element. One is at top <code>sidebar-top-slot</code> and the other one is at bottom <code>sidebar-bottom-slot</code>.</p>
-        <p>There is a seperator between these two ad slots to push bottom ad out of first viewport. (to observe lazyloading behaviour clearly)</p>
+        <p>There is a seperator between these two ad slots to push bottom slot out of first viewport. (to observe lazyloading behaviour clearly)</p>
       </div>
-      <!-- top ad -->
+      <!-- top slot -->
       <div id='sidebar-top-slot'>
         <script>
           googletag.cmd.push(function () {
@@ -159,7 +161,7 @@
     <aside class="grid-aside-bottom">
       <h1>Bottom Slot</h1>
       <p>This slot will be used to observe lazyload behaviour.</p>
-      <!-- bottom ad -->
+      <!-- bottom slot -->
       <div id='sidebar-bottom-slot'>
         <script>
           googletag.cmd.push(function () {
@@ -172,11 +174,12 @@
       <div class="privacy-matters-wrapper">
         <h1 id="privacy-matters">Ad/Tracker Blockers I Use</h1>
         <ul>
-          <li><a href="https://getadblock.com/" target="_blank">getadblock.com</a></li>
-          <li><a href="https://duckduckgo.com/" target="_blank">duckduckgo.com</a></li>
           <li><a href="https://www.mozilla.org/en-US/firefox/" target="_blank">mozilla.org/en-US/firefox</a></li>
+          <li><a href="https://duckduckgo.com/" target="_blank">duckduckgo.com</a></li>
+          <li><a href="https://getadblock.com/" target="_blank">getadblock.com</a></li>
           <li><a href="https://brave.com/" target="_blank">brave.com</a></li>
         </ul>
+        <p>The list above is still the beginners stuff. Check <a href="https://www.privacytools.io/browsers/">privacytools.io/browsers</a> for better adjusting yourself with details.</p>
       </div>
     </section>
     <footer class="grid-footer">
@@ -188,5 +191,3 @@
   </div>
 </body>
 </html>
-
-
