@@ -192,7 +192,6 @@ button svg {
 
 .timelines {
   height: calc( ( var(--timeline-size) * 2 ) + 9rem + 4px );
-  margin-bottom: 1rem;
   overflow: visible;
 }
 
@@ -253,16 +252,15 @@ button.pin-button {
   outline: none;
 }
 
-.grid-graph {
-  transition: padding 200ms ease-in;
+.timelines-wrapper {
+  background-color: ghostwhite;
+  border: 1px solid lightgray;
+  padding: 1rem;
 }
 
 .grid-graph.pinned {
   position: sticky;
   top: 1rem;
-  background-color: ghostwhite;
-  border: 1px solid lightgray;
-  padding: 1rem;
   z-index: 1;
 }
 
@@ -337,7 +335,7 @@ button.pin-button {
 .timeline-iddle-timing {
   display: inline-block;
   position: relative;
-  padding: 0 calc( var(--timeline-size) * 0.5 );
+  padding: 0 calc( var(--timeline-size) * 0.375 );
   border-radius: calc( var(--timeline-size) / 2 );
   text-align: center;
   font-family: monospace;
@@ -490,25 +488,26 @@ form.page-settings {
   form.page-settings {
     padding: 0.75rem;
   }
-  .grid-graph.pinned {
-    padding: 0.5rem;
+
+  .timelines-wrapper {
+    padding: 0.75rem;
   }
+
   .timeline-iddle-timing span {
     display: none;
   }
   .timeline-iddle-timing abbr {
     display: inline;
   }
-  
   .timeline-iddle.start {
-    min-width: 3rem;
+    min-width: 2rem;
   }
   .timeline-iddle.finish {
-    min-width: 4rem;
+    min-width: 2rem;
   }
   .timeline-label {
     transform: rotate(-25deg);        
-    max-width: 5rem;
+    max-width: 4.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
   }
