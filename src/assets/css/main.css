@@ -182,6 +182,13 @@ button svg {
 .navbar-item.current {
   text-decoration: underline;
 }
+.navbar-item > a {
+  display: inline-block;
+  line-height: 2rem;
+}
+.navbar-item > a > svg {
+  vertical-align: text-top;
+}
 
 .timelines {
   height: calc( ( var(--timeline-size) * 2 ) + 9rem + 4px );
@@ -216,7 +223,7 @@ button svg {
 .privacy-matters-wrapper {
   background-color: whitesmoke;
   padding: 2rem 1rem;
-  margin-bottom: -1rem;
+  margin-bottom: calc( var(--grid-row-gap) * -1 );
   border-top: 1px solid lightgray;
   text-align: center;
 }
