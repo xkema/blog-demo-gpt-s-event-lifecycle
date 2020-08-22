@@ -481,10 +481,21 @@ form.page-settings {
       "footer      footer      footer";
     grid-template-columns: 1fr auto 1fr;
   }
+
+  .navbar {
+    flex-flow: column;
+    align-items: unset;
+    padding: 1rem 1rem 0.5rem;
+  }
+  .navbar-items {
+    margin: 0.75rem 0 0;
+  }
+
   .sidebar-separator {
     padding-top: 50vh;
     padding-bottom: 50vh;
   }
+
   form.page-settings {
     padding: 0.75rem;
   }
@@ -510,11 +521,5 @@ form.page-settings {
     max-width: 4.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  .navbar {
-    flex-flow: column;
-    align-items: unset;
-    padding: 1rem 1rem;
-  }
+  }  
 }
