@@ -71,9 +71,6 @@ button {
 button:focus {
   outline: solid 1px rgba(218, 165, 32, .25);
 }
-button svg {
-  display: block;
-}
 
 /* === utilities  */
 
@@ -174,20 +171,18 @@ button svg {
 }
 .navbar-item {
   display: inline-block;
-  margin-right: 0.5rem;
-}
-.navbar-item:last-child {
-  margin-right: 0;
 }
 .navbar-item.current {
   text-decoration: underline;
 }
 .navbar-item > a {
   display: inline-block;
-  line-height: 2rem;
+  padding: 0.25rem 0.5rem;
 }
-.navbar-item > a > svg {
-  vertical-align: text-top;
+.navbar-item > a.item-inverted {
+  color: midnightblue;
+  background-color: snow;
+  border-radius: 2px;
 }
 
 .timelines {
@@ -234,10 +229,20 @@ button svg {
 
 .outro {
   background-color: whitesmoke;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   color: darkslategray;
   text-align: center;
   border-top: 1px solid lightgray;
+}
+.outro ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.outro li a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
 }
 
 .pin-title {
@@ -485,7 +490,7 @@ form.page-settings {
   .navbar {
     flex-flow: column;
     align-items: unset;
-    padding: 1rem 1rem 0.5rem;
+    padding: 1rem;
   }
   .navbar-items {
     margin: 0.75rem 0 0;

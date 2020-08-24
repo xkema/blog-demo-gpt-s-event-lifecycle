@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="blog-demo-gpt-s-viewability-and-impression-timing">
-  <title>A simple playground to observe GPT's (Google Publisher Tag) slot lifecycle events.</title>
+  <title>A demo page to observe GPT's (Google Publisher Tag) slot lifecycle events.</title>
   <link rel="stylesheet" href="assets/css/normalize.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
@@ -19,19 +19,15 @@
     <header class="grid-header">
       <nav class="navbar">
         <div class="navbar-brand">
-          <h1><a href="./index.html">GPT's Event Lifecycle</a></h1>
-          <p>GPT's Viewability and Impression Timing</p>
+          <h1><a href="./index.html" title="GPT's Event Lifecycle">GPT's Event Lifecycle</a></h1>
+          <p>A demo page to observe GPT's slot lifecycle events.</p>
         </div>
         <ul class="navbar-items">
           <li class="navbar-item">
-            <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank" title="GitHub Repo">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 16" width="45" height="16" fill="currentColor">
-                <path fill-rule="evenodd" d="M18.53 12.03h-.02c.009 0 .015.01.024.011h.006l-.01-.01zm.004.011c-.093.001-.327.05-.574.05-.78 0-1.05-.36-1.05-.83V8.13h1.59c.09 0 .16-.08.16-.19v-1.7c0-.09-.08-.17-.16-.17h-1.59V3.96c0-.08-.05-.13-.14-.13h-2.16c-.09 0-.14.05-.14.13v2.17s-1.09.27-1.16.28c-.08.02-.13.09-.13.17v1.36c0 .11.08.19.17.19h1.11v3.28c0 2.44 1.7 2.69 2.86 2.69.53 0 1.17-.17 1.27-.22.06-.02.09-.09.09-.16v-1.5a.177.177 0 00-.146-.18zM42.23 9.84c0-1.81-.73-2.05-1.5-1.97-.6.04-1.08.34-1.08.34v3.52s.49.34 1.22.36c1.03.03 1.36-.34 1.36-2.25zm2.43-.16c0 3.43-1.11 4.41-3.05 4.41-1.64 0-2.52-.83-2.52-.83s-.04.46-.09.52c-.03.06-.08.08-.14.08h-1.48c-.1 0-.19-.08-.19-.17l.02-11.11c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v3.77s.82-.53 2.02-.53l-.01-.02c1.2 0 2.97.45 2.97 3.88zm-8.72-3.61h-2.1c-.11 0-.17.08-.17.19v5.44s-.55.39-1.3.39-.97-.34-.97-1.09V6.25c0-.09-.08-.17-.17-.17h-2.14c-.09 0-.17.08-.17.17v5.11c0 2.2 1.23 2.75 2.92 2.75 1.39 0 2.52-.77 2.52-.77s.05.39.08.45c.02.05.09.09.16.09h1.34c.11 0 .17-.08.17-.17l.02-7.47c0-.09-.08-.17-.19-.17zm-23.7-.01h-2.13c-.09 0-.17.09-.17.2v7.34c0 .2.13.27.3.27h1.92c.2 0 .25-.09.25-.27V6.23c0-.09-.08-.17-.17-.17zm-1.05-3.38c-.77 0-1.38.61-1.38 1.38 0 .77.61 1.38 1.38 1.38.75 0 1.36-.61 1.36-1.38 0-.77-.61-1.38-1.36-1.38zm16.49-.25h-2.11c-.09 0-.17.08-.17.17v4.09h-3.31V2.6c0-.09-.08-.17-.17-.17h-2.13c-.09 0-.17.08-.17.17v11.11c0 .09.09.17.17.17h2.13c.09 0 .17-.08.17-.17V8.96h3.31l-.02 4.75c0 .09.08.17.17.17h2.13c.09 0 .17-.08.17-.17V2.6c0-.09-.08-.17-.17-.17zM8.81 7.35v5.74c0 .04-.01.11-.06.13 0 0-1.25.89-3.31.89-2.49 0-5.44-.78-5.44-5.92S2.58 1.99 5.1 2c2.18 0 3.06.49 3.2.58.04.05.06.09.06.14L7.94 4.5c0 .09-.09.2-.2.17-.36-.11-.9-.33-2.17-.33-1.47 0-3.05.42-3.05 3.73s1.5 3.7 2.58 3.7c.92 0 1.25-.11 1.25-.11v-2.3H4.88c-.11 0-.19-.08-.19-.17V7.35c0-.09.08-.17.19-.17h3.74c.11 0 .19.08.19.17z"></path>
-              </svg>
-            </a>
+            <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" title="GitHub Repository">GitHub</a>
           </li>
           <li class="navbar-item">
-            <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank">Post</a>
+            <a href="https://xkema.github.io/2020/gpt-s-event-lifecycle" title="xkema.github.io | GPT's Event Lifecycle" class="item-inverted">Blog Post</a>
           </li>
         </ul>
       </nav>
@@ -42,17 +38,15 @@
       <p class="warning-box">This is a demo for developers whose main development focus is display ads. This is an uncommon topic for most of the front end developers. If you're not working for a digital publisher, I can't say there is much for you here, ... sadly. So here is a good place to decide leaving and finding something funnier to read for yourself!</p>
       <hr>
       <p><b>Ad Blocker Users</b>: You should always be using ad/tracker blockers. <u>But just for this demo you must disable ad blockers temporarily</u>. Because this demo is all about ads.</p>
-      <p><b>Users Without Ad Blocker</b>: You should definitely use an ad/tracker blocker for personal stuff! See some starter <a href="#privacy-matters">links</a> at the end of the page.</p>
+      <p><b>Users Without Ad Blocker</b>: You should definitely use an ad/tracker blocker for personal browsing! See some starter links at page footer.</p>
     </section>
     <!-- timelines wrapper -->
     <section class="grid-graph">
       <div class="timelines-wrapper">
         <div class="pin-title">
           <h1>Event Timelines</h1>
-          <button type="button" class="pin-button pin-timelines" title="pin/unpin panel">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
-              <path fill-rule="evenodd" d="M4.456.734a1.75 1.75 0 012.826.504l.613 1.327a3.081 3.081 0 002.084 1.707l2.454.584c1.332.317 1.8 1.972.832 2.94L11.06 10l3.72 3.72a.75.75 0 11-1.061 1.06L10 11.06l-2.204 2.205c-.968.968-2.623.5-2.94-.832l-.584-2.454a3.081 3.081 0 00-1.707-2.084l-1.327-.613a1.75 1.75 0 01-.504-2.826L4.456.734zM5.92 1.866a.25.25 0 00-.404-.072L1.794 5.516a.25.25 0 00.072.404l1.328.613A4.582 4.582 0 015.73 9.63l.584 2.454a.25.25 0 00.42.12l5.47-5.47a.25.25 0 00-.12-.42L9.63 5.73a4.581 4.581 0 01-3.098-2.537L5.92 1.866z"></path>
-            </svg>
+          <button type="button" class="pin-button pin-timelines" title="pin/unpin">
+            <img src="assets/img/pin.svg" alt="pin/unpin">
           </button>
         </div>
         <div class="timelines"><!-- timelines --></div>
@@ -61,7 +55,7 @@
     <!-- main content -->
     <main class="grid-main">
       <h1>GPT Events</h1>
-      <p>From requesting ads to counting them as impressions, <abbr title="Google Publisher Tag">GPT</abbr> library triggers various events to inform page about current slot statuses. GPT options <code>enableSingleRequest</code> and <code>enableLazyLoad</code> change event triggering times in various ways. Try different setups with customization form.</p>
+      <p>From requesting ads to counting them as impressions, <abbr title="Google Publisher Tag">GPT</abbr> Library triggers a set of events to inform page about current slot statuses. GPT options <code>enableSingleRequest</code> and <code>enableLazyLoad</code> change event triggering timing in various ways. Check this <a href="https://xkema.github.io/2020/gpt-s-event-lifecycle" title="xkema.github.io | GPT's Event Lifecycle">blog post</a> for the details.</p>
       <div class="form-wrapper">
         <h2>Customization Form</h2>
         <!-- customization form -->
@@ -92,50 +86,30 @@
         </form>
       </div>
       <!-- customization form details and description -->
-      <h2>Customization Info & Definitions</h2>
+      <h2>Customization Form Info & Definitions</h2>
       <div class="form-info">
-        <p>Use the form above to change GPT options. Clicking submit button will reload the page with selected configuration.</p>
-        <hr>
-        <p>Follow timelines to observe what changes on selected GPT configuration. Here are some hints for GPT options available:</p>
-        <ul>
-          <li>
-            <p><code>enableSingleRequest</code> Combines fetching of all ad requests into a a single HTTP Request. <a href="https://developers.google.com/doubleclick-gpt/reference#boolean-enablesinglerequest" target="_blank">@docs</a></p>
-            <p>Timing info on the timelines for <code>slotRequested</code> events might differ event if this mode is enabled. Because timeline values are slot definition times not the request times.</p>
-          </li>
-          <li>
-            <p><code>enableLazyLoad</code> Enables GPT's build in lazyloading feature. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
-            <p>Lazyloading helps with reducing page load time by pausing initial requests on page load. It also heps with closing the gap between impressions and viewability metrics.</p>
-          </li>
-          <li>
-            <p><code>fetchMarginPercent</code> Start fetching before entering viewport. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
-            <p>Use fetch margin to decide when to send slot requests. <code>0</code> for right after entering the viewport, <code>100</code> for before <code>1vw</code> etc...</p>
-          </li>
-          <li>
-            <p><code>renderMarginPercent</code> Start rendering before entering viewport. <a href="https://developers.google.com/doubleclick-gpt/reference#googletag.PubAdsService_enableLazyLoad" target="_blank">@docs</a></p>
-            <p>Postpones rendering of slot content which also means postponing impression requests until slot enters the render margin percent.</p>
-          </li>
-        </ul>
+        <p>Use the form above to change GPT options. Clicking submit button will reload the page with selected configuration. Follow timelines to observe what changes on selected GPT configuration. (Use pin button on the right corner of timeline panel to stick it to the top of the page.)</p>
         <hr>
       <p><code>googletag.pubads().refresh()</code> method doesn't update timelines to keep things simple. This demo only shows initial events for each slot.</p>
       </div>
       <!-- predefined setups and description -->
-      <h2>Predefined setups</h2>
+      <h2>Sample Setups</h2>
       <div class="predefined-setups">
         <ul>
           <li>
-            <p><a href="./index.html?enableLazyLoad=on&fetchMarginPercent=0&renderMarginPercent=0">GPT "enableLazyLoad" (default lazyloading setup)</a></p>
+            <p><a href="./index.html?enableLazyLoad=on&fetchMarginPercent=0&renderMarginPercent=0" title="GPT enableLazyLoad (default lazyloading setup)">GPT "enableLazyLoad" (default lazyloading setup)</a></p>
             <p>This is the basic setup for GPT's built-in <code>enableLazyLoad</code> feature. Expected outcome is empty timelines until each slot enters into the viewport. Each timeline will be filled individually at this setup because <code>enableSingleRequest</code> option is not enabled.</p>
             <p>There will be 2 separate network requests for each ad which you can see at your devtool's network panel by filtering requests with <code>ads?</code> keyword.</p>
           </li>
           <li>
-            <p><a href="./index.html?enableSingleRequest=on&enableLazyLoad=on&fetchMarginPercent=0&renderMarginPercent=0">GPT "enableLazyLoad" with "enableSingleRequest" enabled</a></p>
+            <p><a href="./index.html?enableSingleRequest=on&enableLazyLoad=on&fetchMarginPercent=0&renderMarginPercent=0" title="GPT enableLazyLoad with enableSingleRequest enabled">GPT "enableLazyLoad" with "enableSingleRequest" enabled</a></p>
             <p>When <code>enableSingleRequest</code> is enabled along with <code>enableLazyLoad</code> option, individual behaviour above will be interrupted. With this setup ad requests will be merged by GPT.</p>
             <p>This time there will be a single network request for all ad slots at devtool's network panel. (Again, use <code>ads?</code> keyword as a filter.)</p>
             <p>A further note, lazy fetching with <abbr title="Single Request Architecture">SRA</abbr> (<code>enableSingleRequest</code>) will only work if all slots are out of viewport at initial page load. Otherwise both slots will be fetched initially at page load.</p>
             <p><b>Hint</b>: Resize your browser window vertically to observe both. If both slots are out of the viewport, there will be 2 empty timelines initially. Else there will be a filled timelime for top slot and a <code>slotRequested</code> <small>&</small> <code>slotResponseReceived</code> couple for bottom slot.</p>
           </li>
           <li>
-            <p><a href="./index.html">Basic setup without "enableSingleRequest" and "enableLazyLoad"</a></p>
+            <p><a href="./index.html" title="Basic setup without enableSingleRequest and enableLazyLoad">Basic setup without "enableSingleRequest" and "enableLazyLoad"</a></p>
             <p>This is the initial setup for this demo page. Without single request and lazyloading. </p>
           </li>
         </ul>
@@ -180,19 +154,24 @@
       <div class="privacy-matters-wrapper">
         <h1 id="privacy-matters">Ad/Tracker Blockers I Use</h1>
         <ul>
-          <li><a href="https://www.mozilla.org/en-US/firefox/" target="_blank">mozilla.org/en-US/firefox</a></li>
-          <li><a href="https://duckduckgo.com/" target="_blank">duckduckgo.com</a></li>
-          <li><a href="https://getadblock.com/" target="_blank">getadblock.com</a></li>
-          <li><a href="https://brave.com/" target="_blank">brave.com</a></li>
+          <li><a href="https://www.mozilla.org/en-US/firefox/" title="Firefox - Protect your life online with privacy-first products — Mozilla">mozilla.org/en-US/firefox</a></li>
+          <li><a href="https://duckduckgo.com/" title="DuckDuckGo - Privacy, simplified.">duckduckgo.com</a></li>
+          <li><a href="https://getadblock.com/" title="Surf the web without annoying pop ups and ads!">getadblock.com</a></li>
+          <li><a href="https://brave.com/" title="Secure, Fast &amp; Private Web Browser with Adblocker | Brave Browser">brave.com</a></li>
         </ul>
-        <p>The list is still the beginners stuff. Check <a href="https://www.privacytools.io/browsers/">privacytools.io/browsers</a> to better adjust yourself with the details.</p>
+        <p>The list is still the beginners stuff. Check <a href="https://www.privacytools.io/browsers/" title="PrivacyTools - Encryption Against Global Mass Surveillance">privacytools.io/browsers</a> to better adjust yourself with the details.</p>
       </div>
     </section>
     <footer class="grid-footer">
       <div class="outro">
-        <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" target="_blank" title="GitHub Repo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 16" width="45" height="16" fill="currentColor"><path fill-rule="evenodd" d="M18.53 12.03h-.02c.009 0 .015.01.024.011h.006l-.01-.01zm.004.011c-.093.001-.327.05-.574.05-.78 0-1.05-.36-1.05-.83V8.13h1.59c.09 0 .16-.08.16-.19v-1.7c0-.09-.08-.17-.16-.17h-1.59V3.96c0-.08-.05-.13-.14-.13h-2.16c-.09 0-.14.05-.14.13v2.17s-1.09.27-1.16.28c-.08.02-.13.09-.13.17v1.36c0 .11.08.19.17.19h1.11v3.28c0 2.44 1.7 2.69 2.86 2.69.53 0 1.17-.17 1.27-.22.06-.02.09-.09.09-.16v-1.5a.177.177 0 00-.146-.18zM42.23 9.84c0-1.81-.73-2.05-1.5-1.97-.6.04-1.08.34-1.08.34v3.52s.49.34 1.22.36c1.03.03 1.36-.34 1.36-2.25zm2.43-.16c0 3.43-1.11 4.41-3.05 4.41-1.64 0-2.52-.83-2.52-.83s-.04.46-.09.52c-.03.06-.08.08-.14.08h-1.48c-.1 0-.19-.08-.19-.17l.02-11.11c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v3.77s.82-.53 2.02-.53l-.01-.02c1.2 0 2.97.45 2.97 3.88zm-8.72-3.61h-2.1c-.11 0-.17.08-.17.19v5.44s-.55.39-1.3.39-.97-.34-.97-1.09V6.25c0-.09-.08-.17-.17-.17h-2.14c-.09 0-.17.08-.17.17v5.11c0 2.2 1.23 2.75 2.92 2.75 1.39 0 2.52-.77 2.52-.77s.05.39.08.45c.02.05.09.09.16.09h1.34c.11 0 .17-.08.17-.17l.02-7.47c0-.09-.08-.17-.19-.17zm-23.7-.01h-2.13c-.09 0-.17.09-.17.2v7.34c0 .2.13.27.3.27h1.92c.2 0 .25-.09.25-.27V6.23c0-.09-.08-.17-.17-.17zm-1.05-3.38c-.77 0-1.38.61-1.38 1.38 0 .77.61 1.38 1.38 1.38.75 0 1.36-.61 1.36-1.38 0-.77-.61-1.38-1.36-1.38zm16.49-.25h-2.11c-.09 0-.17.08-.17.17v4.09h-3.31V2.6c0-.09-.08-.17-.17-.17h-2.13c-.09 0-.17.08-.17.17v11.11c0 .09.09.17.17.17h2.13c.09 0 .17-.08.17-.17V8.96h3.31l-.02 4.75c0 .09.08.17.17.17h2.13c.09 0 .17-.08.17-.17V2.6c0-.09-.08-.17-.17-.17zM8.81 7.35v5.74c0 .04-.01.11-.06.13 0 0-1.25.89-3.31.89-2.49 0-5.44-.78-5.44-5.92S2.58 1.99 5.1 2c2.18 0 3.06.49 3.2.58.04.05.06.09.06.14L7.94 4.5c0 .09-.09.2-.2.17-.36-.11-.9-.33-2.17-.33-1.47 0-3.05.42-3.05 3.73s1.5 3.7 2.58 3.7c.92 0 1.25-.11 1.25-.11v-2.3H4.88c-.11 0-.19-.08-.19-.17V7.35c0-.09.08-.17.19-.17h3.74c.11 0 .19.08.19.17z"></path></svg>
-        </a>
+        <ul>
+          <li>
+            <a href="https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing" title="GitHub Repository">GitHub</a>
+          </li>
+          <li>
+            <a href="https://xkema.github.io/2020/gpt-s-event-lifecycle" title="xkema.github.io | GPT's Event Lifecycle">Blog Post</a>
+          </li>
+        </ul>
       </div>
     </footer>
   </div>
