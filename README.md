@@ -1,6 +1,6 @@
-# blog-demo-gpt-s-viewability-and-impression-timing
+# Blog Demo | GPT's Event Lifecycle
 
-blog-demo-gpt-s-viewability-and-impression-timing
+A demo page to observe GPT's (Google Publisher Tag) slot lifecycle events.
 
 ## notes
 

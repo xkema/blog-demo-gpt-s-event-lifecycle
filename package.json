@@ -1,7 +1,7 @@
 {
-  "name": "blog-demo-gpt-s-viewability-and-impression-timing",
+  "name": "blog-demo-gpt-s-event-lifecycle",
   "version": "1.0.0",
-  "description": "blog-demo-gpt-s-viewability-and-impression-timing",
+  "description": "A demo page to observe GPT's (Google Publisher Tag) slot lifecycle events.",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {},
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing.git"
+    "url": "git+https://github.com/xkema/blog-demo-gpt-s-event-lifecycle.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing/issues"
+    "url": "https://github.com/xkema/blog-demo-gpt-s-event-lifecycle/issues"
   },
-  "homepage": "https://github.com/xkema/blog-demo-gpt-s-viewability-and-impression-timing#readme"
+  "homepage": "https://github.com/xkema/blog-demo-gpt-s-event-lifecycle#readme"
 }
