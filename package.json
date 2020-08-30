@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "start": "browser-sync start --server --directory --port 4005 --no-open --files src"
+    "start": "browser-sync start --server --directory --port 4005 --no-open --files docs"
   },
   "repository": {
     "type": "git",
