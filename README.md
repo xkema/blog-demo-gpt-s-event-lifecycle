@@ -15,4 +15,4 @@ Each ad slot defined by GPT has an event lifecycle consists of these events:
 
 This demo page tries to give some guidance on these events and their changes based on some other GPT properties.
 
-Theres is blog post for furher reading here: [xkema.github.io | GPT's Event Lifecycle](https://xkema.github.io/2020/gpt-s-event-lifecycle "xkema.github.io | GPT's Event Lifecycle")
+There is a blog post for furher reading here: [xkema.github.io | GPT's Event Lifecycle](https://xkema.github.io/2020/gpt-s-event-lifecycle "xkema.github.io | GPT's Event Lifecycle")
